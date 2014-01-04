@@ -1,4 +1,4 @@
-package com.ontology2.com.ontology2.telepath;
+package com.ontology2.telepath;
 
 import com.google.common.collect.Lists;
 import com.ontology2.bakemono.MainBase;
