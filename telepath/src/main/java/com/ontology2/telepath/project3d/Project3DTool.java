@@ -51,7 +51,7 @@ public class Project3DTool extends ToolBase {
     }
 
     Project3DOptions extractOptions(List<String> strings) throws IllegalAccessException {
-        OptionParser parser=new OptionParser(ExtractIsAOptions.class);
+        OptionParser parser=new OptionParser(Project3DOptions.class);
         applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
 
         Project3DOptions options=(Project3DOptions) parser.parse(Lists.newArrayList(strings));
