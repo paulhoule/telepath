@@ -19,6 +19,8 @@ public class Project3DReducer extends Reducer<Text,LongWritable,Text,LongWritabl
             sum += v.get();
         }
 
-        context.write(key,new LongWritable(sum));
+        if(sum>10) {
+            context.write(key,new LongWritable(sum));
+        }
     }
 }
