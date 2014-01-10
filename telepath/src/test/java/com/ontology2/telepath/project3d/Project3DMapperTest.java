@@ -25,13 +25,13 @@ public class Project3DMapperTest {
     @Test
     public void enPassesThrough() throws IOException, InterruptedException {
         mapper.map(new LongWritable(1L),new Text("en Slapstick 778 1551"),context);
-        verify(context).write(new Text("Slapstick"),new LongWritable(778));
+        verify(context).write(new Text("en Slapstick"),new LongWritable(778));
     }
 
     @Test
     public void frPassesThrough() throws IOException, InterruptedException {
         mapper.map(new LongWritable(1L),new Text("fr Slapstick 778 1551"),context);
-        verify(context).write(new Text("Slapstick"),new LongWritable(778));
+        verify(context).write(new Text("fr Slapstick"),new LongWritable(778));
     }
 
 }

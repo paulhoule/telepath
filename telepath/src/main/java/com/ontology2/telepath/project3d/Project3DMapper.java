@@ -31,7 +31,7 @@ public class Project3DMapper extends Mapper<LongWritable,Text,Text,LongWritable>
 //            if (!lang.equals("en"))
 //                return;
 
-            context.write(new Text(page),new LongWritable(count));
+            context.write(new Text(lang+" "+page),new LongWritable(count));
         } catch(NoSuchElementException|NumberFormatException nsee) {
             LOG.warn("invalid input line ["+value.toString()+"] in file "+context.getInputSplit().getLocations());
         }
