@@ -29,7 +29,7 @@ public class Project3DMapperTest {
     }
 
     @Test
-    public void frGetsRejected() throws IOException, InterruptedException {
+    public void frPassesThrough() throws IOException, InterruptedException {
         mapper.map(new LongWritable(1L),new Text("fr Slapstick 778 1551"),context);
         verifyNoMoreInteractions(context);
     }
