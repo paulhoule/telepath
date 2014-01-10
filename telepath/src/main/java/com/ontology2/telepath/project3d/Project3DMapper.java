@@ -28,8 +28,8 @@ public class Project3DMapper extends Mapper<LongWritable,Text,Text,LongWritable>
             String page=parts.next();
             Long count=Long.parseLong(parts.next());
 
-            if (!lang.equals("en"))
-                return;
+//            if (!lang.equals("en"))
+//                return;
 
             context.write(new Text(page),new LongWritable(count));
         } catch(NoSuchElementException|NumberFormatException nsee) {
