@@ -17,6 +17,9 @@ public class InBloomFilterOptions implements HasOptions {
     @Option(description="output files",contextualConverter=PathConverter.class)
     public String output;
 
+    @Option(description="bloom filter",contextualConverter=PathConverter.class)
+    public String bloomFilter;
+
     public static class PathConverter implements ContextualConverter<String> {
         public String convert(String value, HasOptions that) {
             String defaultDir=getDefaultDir((InBloomFilterOptions) that);
