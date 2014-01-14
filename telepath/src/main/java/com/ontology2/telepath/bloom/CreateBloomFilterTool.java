@@ -16,11 +16,25 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileAsBinaryOutputFormat;
 import org.apache.hadoop.util.bloom.BloomFilter;
+import com.ontology2.centipede.shell.UsageException;
 
 import javax.annotation.Nullable;
 
 @HadoopTool("createBloomFilter")
 public class CreateBloomFilterTool extends SingleJobTool<CreateBloomOptions> {
+
+
+    @Override
+    protected void validateOptions() {
+        if(options.k==0)
+            throw new UsageException("You must specify -k,  the number of hash functions");
+
+        if(options.m==0)
+            throw new UsageException("You must specify -m,  the size of the bloom filter");
+
+        getConf().set(BloomReducer.NB_HASH,Integer.toString(options.k));
+        getConf().set(BloomReducer.VECTOR_SIZE,Integer.toString(options.m));
+    }
 
 
     @Override

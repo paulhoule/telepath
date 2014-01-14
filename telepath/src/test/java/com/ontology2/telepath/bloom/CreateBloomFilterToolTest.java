@@ -32,6 +32,10 @@ public class CreateBloomFilterToolTest {
             "/basekb-sandbox/someLocation",
             "-R",
             "9500",
+            "-k",
+             "7",
+            "-m",
+            "1000000",
             "-output",
             "/basekb-sandbox/anotherLocation"
         });

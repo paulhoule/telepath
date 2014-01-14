@@ -39,4 +39,10 @@ public class CreateBloomOptions implements HasOptions {
             return that.dir;
         }
     }
+
+    @Option(description="number of hash functions")
+    public int k;
+
+    @Option(description="size of bloom filter")
+    public int m;
 }
