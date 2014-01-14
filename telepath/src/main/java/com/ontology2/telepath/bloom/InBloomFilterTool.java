@@ -38,12 +38,12 @@ public class InBloomFilterTool extends SingleJobTool<InBloomFilterOptions> {
 
     @Override
     public Class<? extends Writable> getOutputKeyClass() {
-        return null;
+        return Text.class;
     }
 
     @Override
     public Class<? extends Writable> getOutputValueClass() {
-        return null;
+        return Text.class;
     }
 
     @Override
