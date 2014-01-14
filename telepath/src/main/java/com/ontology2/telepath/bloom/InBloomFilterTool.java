@@ -37,11 +37,6 @@ public class InBloomFilterTool extends SingleJobTool<InBloomFilterOptions> {
     }
 
     @Override
-    protected Class<? extends Reducer> getReducerClass() {
-        return null;
-    }
-
-    @Override
     public Class<? extends Writable> getOutputKeyClass() {
         return null;
     }

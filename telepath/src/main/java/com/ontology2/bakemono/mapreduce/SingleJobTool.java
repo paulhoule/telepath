@@ -30,7 +30,9 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     protected abstract Class<? extends Writable> getMapOutputKeyClass();
     protected abstract Class<? extends Writable> getMapOutputValueClass();
 
-    protected abstract Class<? extends Reducer> getReducerClass();
+    protected Class<? extends Reducer> getReducerClass() {
+        return Reducer.class;
+    }
 
     abstract public Class<? extends Writable> getOutputKeyClass();
     abstract public Class<? extends Writable> getOutputValueClass();
