@@ -2,6 +2,7 @@ package com.ontology2.telepath.bloom;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Iterables;
+import com.ontology2.bakemono.configuration.HadoopTool;
 import com.ontology2.bakemono.mapreduce.SingleJobTool;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
@@ -13,6 +14,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 import javax.annotation.Nullable;
 
+@HadoopTool("inBloomFilter")
 public class InBloomFilterTool extends SingleJobTool<InBloomFilterOptions> {
     @Override
     protected String getName() {
