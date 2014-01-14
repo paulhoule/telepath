@@ -15,6 +15,7 @@ import org.apache.hadoop.mapreduce.OutputFormat;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.SequenceFileAsBinaryOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
 import org.apache.hadoop.util.bloom.BloomFilter;
 import com.ontology2.centipede.shell.UsageException;
 
@@ -105,7 +106,7 @@ public class CreateBloomFilterTool extends SingleJobTool<CreateBloomOptions> {
 
     @Override
     protected Class<? extends OutputFormat> getOutputFormatClass() {
-        return SequenceFileAsBinaryOutputFormat.class;
+        return SequenceFileOutputFormat.class;
     }
 
 }
