@@ -15,31 +15,29 @@ import static junit.framework.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("../applicationContext.xml")
-
-public class CreateBloomFilterToolTest {
+public class TestInBloomFilterTool {
     @Autowired
-    CreateBloomFilterTool createBloomFilterTool;
+    InBloomFilterTool inBloomFilterTool;
 
     @Before
     public void setup() {
-        createBloomFilterTool.setConf(new Configuration());
+        inBloomFilterTool.setConf(new Configuration());
     }
 
     @Test
     public void createsCorrectJobConfiguration() throws IOException, IllegalAccessException, ClassNotFoundException {
-        Job job=createBloomFilterTool.createJob(new String[] {
-            "-input",
-            "/basekb-sandbox/someLocation",
-            "-R",
-            "9500",
-            "-k",
-             "7",
-            "-m",
-            "1000000",
-            "-output",
-            "/basekb-sandbox/anotherLocation",
+        Job job=inBloomFilterTool.createJob(new String[] {
+                "-input",
+                "/basekb-sandbox/someLocation",
+                "-k",
+                "7",
+                "-output",
+                "/basekb-sandbox/anotherLocation",
+                "-bloomFilter",
+                "/camels/"
         });
 
-        assertEquals(job.getMapperClass(),BloomMapper.class);
+        assertEquals(job.getMapperClass(),InBloomFilterMapper.class);
+        assertEquals(job.getConfiguration().get(InBloomFilterMapper.FILTER_PATH),"/camels/");
     }
 }

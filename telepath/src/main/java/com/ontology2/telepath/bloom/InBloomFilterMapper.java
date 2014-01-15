@@ -27,6 +27,7 @@ public class InBloomFilterMapper extends Mapper<Text,Text,Text,Text> {
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
         super.setup(context);
+        System.out.println(context.getConfiguration());
         Path filterPath=new Path(context.getConfiguration().get(FILTER_PATH));
         int nbHash=context.getConfiguration().getInt(NB_HASH, 0);
         int hashType= Hash.parseHashType(context.getConfiguration().get(HASH_TYPE, "murmur"));
