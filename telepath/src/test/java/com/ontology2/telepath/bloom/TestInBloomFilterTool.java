@@ -39,5 +39,6 @@ public class TestInBloomFilterTool {
 
         assertEquals(job.getMapperClass(),InBloomFilterMapper.class);
         assertEquals(job.getConfiguration().get(InBloomFilterMapper.FILTER_PATH),"/camels/");
+        assertEquals(job.getConfiguration().get(InBloomFilterMapper.NB_HASH),"7");
     }
 }
