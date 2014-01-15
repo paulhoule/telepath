@@ -22,6 +22,11 @@ public class InBloomFilterTool extends SingleJobTool<InBloomFilterOptions> {
     }
 
     @Override
+    protected void validateOptions() {
+        getConf().set(InBloomFilterMapper.FILTER_PATH,options.bloomFilter);
+    }
+
+    @Override
     protected Class<? extends Mapper> getMapperClass() {
         return InBloomFilterMapper.class;
     }
