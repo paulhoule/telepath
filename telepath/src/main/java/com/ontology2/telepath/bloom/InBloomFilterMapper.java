@@ -14,6 +14,7 @@ import org.apache.hadoop.util.hash.Hash;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class InBloomFilterMapper extends Mapper<LongWritable,Text,Text,Text> {
 
@@ -50,15 +51,19 @@ public class InBloomFilterMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        Iterator<String> parts= SPACE_SPLITTER.split(value.toString()).iterator();
-        String lang=parts.next();
-        String page=parts.next();
-        Long count=Long.parseLong(parts.next());
+        try {
+            Iterator<String> parts= SPACE_SPLITTER.split(value.toString()).iterator();
+            String lang=parts.next();
+            String page=parts.next();
+            Long count=Long.parseLong(parts.next());
 
-        String compositeKey=lang+" "+page;
+            String compositeKey=lang+" "+page;
 
-        if(filter.membershipTest(toKey(compositeKey))) {
-            context.write(null,value);
+            if(filter.membershipTest(toKey(compositeKey))) {
+                context.write(null,value);
+            }
+        } catch(NoSuchElementException |NumberFormatException nsee) {
+            LOG.warn("invalid input line ["+value.toString()+"] in file "+context.getInputSplit().getLocations());
         }
     }
 
