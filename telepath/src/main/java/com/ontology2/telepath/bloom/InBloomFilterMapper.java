@@ -27,11 +27,11 @@ public class InBloomFilterMapper extends Mapper<Text,Text,Text,Text> {
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
         super.setup(context);
-        System.out.println(context.getConfiguration());
+        context.getConfiguration().writeXml(System.out);
         Path filterPath=new Path(context.getConfiguration().get(FILTER_PATH));
         int nbHash=context.getConfiguration().getInt(NB_HASH, 0);
         int hashType= Hash.parseHashType(context.getConfiguration().get(HASH_TYPE, "murmur"));
-        FileSystem fs=FileSystem.get(context.getConfiguration());
+        FileSystem fs=FileSystem.get(filterPath.toUri(),context.getConfiguration());
         SequenceFile.Reader reader=new SequenceFile.Reader(fs,filterPath,context.getConfiguration());
         NullWritable emptyKey=NullWritable.get();
         BloomFilter partFilter=new BloomFilter();
