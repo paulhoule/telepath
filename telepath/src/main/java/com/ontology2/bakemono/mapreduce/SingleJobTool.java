@@ -3,23 +3,22 @@ package com.ontology2.bakemono.mapreduce;
 import com.google.common.collect.Lists;
 import com.ontology2.bakemono.mapred.ToolBase;
 import com.ontology2.centipede.parser.OptionParser;
-import com.ontology2.telepath.project3d.Project3DOptions;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 import java.io.IOException;
-import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 
 public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     protected OptionsClass options;
     protected void validateOptions() {} ;
     abstract protected String getName();   // can this be defaulted with Spring magic?
-    protected Class<? extends InputFormat> getInputFormat() {
+    protected Class<? extends InputFormat> getInputFormatClass() {
         return TextInputFormat.class;
     }
     protected abstract Class<? extends Mapper> getMapperClass();
@@ -40,7 +39,9 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     abstract public Iterable<Path> getInputPaths();
     abstract public int getNumReduceTasks();
     protected abstract Path getOutputPath();
-    protected abstract Class<? extends OutputFormat> getOutputFormatClass();
+    protected Class<? extends OutputFormat> getOutputFormatClass() {
+        return TextOutputFormat.class;
+    }
 
     //
     // the assumption here is that any real instance of this will be a non-generic
@@ -78,7 +79,7 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
         job.setOutputKeyClass(getOutputKeyClass());
         job.setOutputValueClass(getOutputValueClass());
 
-        job.setInputFormatClass(getInputFormat());
+        job.setInputFormatClass(getInputFormatClass());
         for(Path p:getInputPaths()) {
             FileInputFormat.addInputPath(job, p);
         }

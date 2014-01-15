@@ -49,7 +49,7 @@ public class CreateBloomFilterTool extends SingleJobTool<CreateBloomOptions> {
     }
 
     @Override
-    protected Class<? extends InputFormat> getInputFormat() {
+    protected Class<? extends InputFormat> getInputFormatClass() {
         return KeyValueTextInputFormat.class;
     }
 

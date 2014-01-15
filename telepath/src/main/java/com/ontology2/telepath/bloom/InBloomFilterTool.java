@@ -74,11 +74,6 @@ public class InBloomFilterTool extends SingleJobTool<InBloomFilterOptions> {
     }
 
     @Override
-    protected Class<? extends OutputFormat> getOutputFormatClass() {
-        return TextOutputFormat.class;
-    }
-
-    @Override
     public Class getOptionsClass() {
         return InBloomFilterOptions.class;
     }

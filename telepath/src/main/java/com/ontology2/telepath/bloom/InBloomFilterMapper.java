@@ -1,11 +1,11 @@
 package com.ontology2.telepath.bloom;
 
+import com.google.common.base.Splitter;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.NullWritable;
-import org.apache.hadoop.io.SequenceFile;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.util.bloom.BloomFilter;
 import org.apache.hadoop.util.bloom.Key;
@@ -13,8 +13,9 @@ import org.apache.hadoop.util.hash.Hash;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class InBloomFilterMapper extends Mapper<Text,Text,Text,Text> {
+public class InBloomFilterMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     private static final String THIS="com.ontology2.telepath.bloom.InBloomFilterMapper";
     public static final String FILTER_PATH=THIS+".filterPath";
@@ -22,6 +23,10 @@ public class InBloomFilterMapper extends Mapper<Text,Text,Text,Text> {
     // the actual size of the bloom filter can be determined when we load it,  why not the hash number?
     static final public String NB_HASH=THIS+".nbHash";
     static final public String HASH_TYPE=THIS+".hashType";
+
+    private Splitter SPACE_SPLITTER =Splitter.on(' ');
+    Log LOG= LogFactory.getLog(InBloomFilterMapper.class);
+
     protected BloomFilter filter=null;
 
     @Override
@@ -44,9 +49,16 @@ public class InBloomFilterMapper extends Mapper<Text,Text,Text,Text> {
     }
 
     @Override
-    protected void map(Text key, Text value, Context context) throws IOException, InterruptedException {
-        if(filter.membershipTest(toKey(key))) {
-            context.write(key,value);
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        Iterator<String> parts= SPACE_SPLITTER.split(value.toString()).iterator();
+        String lang=parts.next();
+        String page=parts.next();
+        Long count=Long.parseLong(parts.next());
+
+        String compositeKey=lang+" "+page;
+
+        if(filter.membershipTest(toKey(compositeKey))) {
+            context.write(null,value);
         }
     }
 
