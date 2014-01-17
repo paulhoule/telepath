@@ -33,7 +33,6 @@ public class InBloomFilterMapper extends Mapper<LongWritable,Text,Text,Text> {
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
         super.setup(context);
-        context.getConfiguration().writeXml(System.out);
         Path filterPath=new Path(context.getConfiguration().get(FILTER_PATH));
         int nbHash=context.getConfiguration().getInt(NB_HASH, 0);
         int hashType= Hash.parseHashType(context.getConfiguration().get(HASH_TYPE, "murmur"));
