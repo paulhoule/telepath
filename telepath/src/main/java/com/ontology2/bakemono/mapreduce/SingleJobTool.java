@@ -5,6 +5,8 @@ import com.ontology2.bakemono.mapred.ToolBase;
 import com.ontology2.centipede.parser.OptionParser;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.compress.CompressionCodec;
+import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
@@ -41,6 +43,14 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     protected abstract Path getOutputPath();
     protected Class<? extends OutputFormat> getOutputFormatClass() {
         return TextOutputFormat.class;
+    }
+
+    //
+    // "null" means don't compress
+    //
+
+    protected Class<? extends CompressionCodec> getOutputCompressorClass() {
+        return GzipCodec.class;
     }
 
     //
@@ -87,11 +97,17 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
         job.setNumReduceTasks(getNumReduceTasks());
         FileOutputFormat.setOutputPath(job, getOutputPath());
         job.setOutputFormatClass(getOutputFormatClass());
+
+        // should we let output compression be configurable?  the bloom filters shouldn't be compressible
+        // if they are optimally tuned,  but trying to compress a file that size won't hurt
+
+        if(getOutputCompressorClass()!=null) {
+            FileOutputFormat.setCompressOutput(job,true);
+            FileOutputFormat.setOutputCompressorClass(job,getOutputCompressorClass());
+        }
+
         return job;
     }
-
-
-
 
     private OptionsClass extractOptions(String[] strings) throws IllegalAccessException {
         return extractOptions(Lists.newArrayList(strings));

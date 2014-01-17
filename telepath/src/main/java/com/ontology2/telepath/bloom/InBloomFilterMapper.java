@@ -1,12 +1,15 @@
 package com.ontology2.telepath.bloom;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import static com.google.common.collect.Iterables.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.util.bloom.BloomFilter;
 import org.apache.hadoop.util.bloom.Key;
 import org.apache.hadoop.util.hash.Hash;
@@ -25,10 +28,14 @@ public class InBloomFilterMapper extends Mapper<LongWritable,Text,Text,Text> {
     static final public String NB_HASH=THIS+".nbHash";
     static final public String HASH_TYPE=THIS+".hashType";
 
-    private Splitter SPACE_SPLITTER =Splitter.on(' ');
+    private static Splitter SPACE_SPLITTER =Splitter.on(' ');
+    private static Splitter SLASH_SPLITTER =Splitter.on('/');
+    private static Splitter DASH_SPLITTER = Splitter.on("-");
+    private static Splitter DOT_SPLITTER =  Splitter.on(".");
     Log LOG= LogFactory.getLog(InBloomFilterMapper.class);
 
     protected BloomFilter filter=null;
+    private Text timeLabel;
 
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
@@ -46,6 +53,17 @@ public class InBloomFilterMapper extends Mapper<LongWritable,Text,Text,Text> {
             }
             filter.or(partFilter);
         }
+
+        String filename = ((FileSplit)context.getInputSplit()).getPath().getName();
+        String fileLabel = extractDateTime(filename);
+        timeLabel=new Text(fileLabel);
+    }
+
+    static String extractDateTime(String filename) {
+        String lastBit = getLast(SLASH_SPLITTER.split(filename));
+        String dotless = getFirst(DOT_SPLITTER.split(lastBit), "");
+        Iterable<String> segments = skip(DASH_SPLITTER.split(dotless),1);
+        return Joiner.on("-").join(segments);
     }
 
     @Override
@@ -59,7 +77,7 @@ public class InBloomFilterMapper extends Mapper<LongWritable,Text,Text,Text> {
             String compositeKey=lang+" "+page;
 
             if(filter.membershipTest(toKey(compositeKey))) {
-                context.write(null,value);
+                context.write(timeLabel,value);
             }
         } catch(NoSuchElementException |NumberFormatException nsee) {
             LOG.warn("invalid input line ["+value.toString()+"] in file "+context.getInputSplit().getLocations());
