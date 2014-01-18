@@ -28,6 +28,7 @@ public class Project3DTool extends ToolBase {
     public int run(String[] strings) throws Exception {
         Project3DOptions options = extractOptions(Lists.newArrayList(strings));
         configureOutputCompression();
+        getConf().set(Project3DReducer.THRESHOLD,Integer.toString(options.threshold));
         Job job=new Job(getConf(),"project3D");
         job.setJarByClass(this.getClass());
         job.setMapperClass(Project3DMapper.class);
@@ -40,7 +41,6 @@ public class Project3DTool extends ToolBase {
         for(String path: options.input) {
             FileInputFormat.addInputPath(job, new Path(path));
         }
-
 
         job.setNumReduceTasks(options.reducerCount);
         FileOutputFormat.setOutputPath(job, new Path(options.output));

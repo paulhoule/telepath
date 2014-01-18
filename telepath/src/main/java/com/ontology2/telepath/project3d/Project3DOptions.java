@@ -11,6 +11,9 @@ public class Project3DOptions implements HasOptions {
     @Option(name="R",description="number of reducers")
     public int reducerCount;
 
+    @Option(name="threshold",description="minimum number of views to acknowledge existence")
+    public int threshold;
+
     @Option(description="input and output file default directory")
     public String dir;
 
