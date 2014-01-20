@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/telepath/telepath.iml" filepath="$PROJECT_DIR$/telepath/telepath.iml" />
+      <module fileurl="file://$PROJECT_DIR$/telepath-parent.iml" filepath="$PROJECT_DIR$/telepath-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/telepathSql/telepathSql.iml" filepath="$PROJECT_DIR$/telepathSql/telepathSql.iml" />
+    </modules>
+  </component>
+</project>
+
