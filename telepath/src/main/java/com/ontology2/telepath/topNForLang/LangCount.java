@@ -1,4 +1,4 @@
-package com.ontology2.topNForLang;
+package com.ontology2.telepath.topNForLang;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
@@ -17,6 +17,19 @@ public class LangCount implements Writable {
         count=new VIntWritable();
     };
 
+    public LangCount(String lang,int count) {
+        this.lang=new Text(lang);
+        this.count=new VIntWritable(count);
+    };
+
+    public Text getLang() {
+        return lang;
+    }
+
+    public VIntWritable getCount() {
+        return count;
+    }
+
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         lang.write(dataOutput);
@@ -27,5 +40,17 @@ public class LangCount implements Writable {
     public void readFields(DataInput dataInput) throws IOException {
         lang.readFields(dataInput);
         count.readFields(dataInput);
+    }
+
+    @Override
+    public boolean equals(Object that) {
+        if (that==null)
+            return false;
+
+        if (!(that instanceof LangCount))
+            return false;
+
+        LangCount other=(LangCount) that;
+        return this.lang.equals(other.lang) && this.count.equals(other.count);
     }
 }
