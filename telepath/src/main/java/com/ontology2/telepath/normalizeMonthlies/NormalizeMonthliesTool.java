@@ -67,7 +67,7 @@ public class NormalizeMonthliesTool extends SingleJobTool<NormalizeMonthliesOpti
 
     @Override
     public int getNumReduceTasks() {
-        return 0;
+        return options.reducerCount;
     }
 
     @Override

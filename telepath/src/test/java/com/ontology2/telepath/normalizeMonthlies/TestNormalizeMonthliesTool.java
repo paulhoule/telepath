@@ -35,9 +35,12 @@ public class TestNormalizeMonthliesTool {
                 "1941-12",
                 "-output",
                 "/basekb-sandbox/anotherLocation",
+                "-R",
+                "9999"
         });
 
         assertEquals(job.getMapperClass(),NormalizeMonthliesMapper.class);
         assertEquals("1941-12",job.getConfiguration().get(NormalizeMonthliesReducer.YRMO));
+        assertEquals(9999,job.getNumReduceTasks());
     }
 }
