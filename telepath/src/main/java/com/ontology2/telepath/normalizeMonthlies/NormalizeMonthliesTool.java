@@ -8,7 +8,10 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.mapreduce.InputFormat;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 
 import javax.annotation.Nullable;
 
@@ -73,6 +76,10 @@ public class NormalizeMonthliesTool extends SingleJobTool<NormalizeMonthliesOpti
     @Override
     protected Path getOutputPath() {
         return new Path(options.output);
+    }
+
+    protected Class<? extends InputFormat> getInputFormatClass() {
+        return KeyValueTextInputFormat.class;
     }
 }
 
