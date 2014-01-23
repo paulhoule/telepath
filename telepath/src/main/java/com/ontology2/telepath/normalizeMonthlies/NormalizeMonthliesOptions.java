@@ -25,7 +25,7 @@ public class NormalizeMonthliesOptions implements HasOptions {
 
     public static class PathConverter implements ContextualConverter<String> {
         public String convert(String value, HasOptions that) {
-            String defaultDir=getDefaultDir((CreateBloomOptions) that);
+            String defaultDir=getDefaultDir((NormalizeMonthliesOptions) that);
 
             if(defaultDir.isEmpty())
                 return value;
@@ -34,7 +34,7 @@ public class NormalizeMonthliesOptions implements HasOptions {
             return there.toString();
         }
 
-        public String getDefaultDir(CreateBloomOptions that) {
+        public String getDefaultDir(NormalizeMonthliesOptions that) {
             return that.dir;
         }
     }

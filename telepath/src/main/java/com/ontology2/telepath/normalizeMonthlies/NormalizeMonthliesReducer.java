@@ -7,8 +7,15 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 
 public class NormalizeMonthliesReducer extends Reducer<Text,VIntWritable,Text,Text> {
-    final static private String THIS="com.ontology2.telepath.normalizeMonthlies";
+    final static private String THIS="com.ontology2.telepath.normalizeMonthliesReducer";
     final static public String YRMO=THIS+".yrmo";
+
+    String yrmo=null;
+    @Override
+
+    protected void setup(Context context) throws IOException, InterruptedException {
+        yrmo=context.getConfiguration().get(YRMO);
+    }
 
     @Override
     protected void reduce(Text key, Iterable<VIntWritable> values, Context context) throws IOException, InterruptedException {
@@ -20,7 +27,7 @@ public class NormalizeMonthliesReducer extends Reducer<Text,VIntWritable,Text,Te
             viewCount+=views.get();
         }
 
-        Text outKey=new Text(YRMO+" "+key.toString());
+        Text outKey=new Text(yrmo+" "+key.toString());
         Text outValue=new Text(uriCount+" "+viewCount);
         context.write(outKey,outValue);
     }

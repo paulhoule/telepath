@@ -2,6 +2,7 @@ package com.ontology2.telepath.normalizeMonthlies;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Iterables;
+import com.ontology2.bakemono.configuration.HadoopTool;
 import com.ontology2.bakemono.mapreduce.SingleJobTool;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
@@ -11,7 +12,13 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import javax.annotation.Nullable;
 
+@HadoopTool("normalizeMonthlies")
 public class NormalizeMonthliesTool extends SingleJobTool<NormalizeMonthliesOptions> {
+    @Override
+    protected void validateOptions() {
+        getConf().set(NormalizeMonthliesReducer.YRMO,options.yrmo);
+    }
+
     @Override
     protected String getName() {
         return "normalizeMonthliesTool";
@@ -44,7 +51,7 @@ public class NormalizeMonthliesTool extends SingleJobTool<NormalizeMonthliesOpti
 
     @Override
     public Class getOptionsClass() {
-        return NormalizeMonthliesTool.class;
+        return NormalizeMonthliesOptions.class;
     }
 
     @Override
@@ -65,7 +72,7 @@ public class NormalizeMonthliesTool extends SingleJobTool<NormalizeMonthliesOpti
 
     @Override
     protected Path getOutputPath() {
-        return null;
+        return new Path(options.output);
     }
 }
 
