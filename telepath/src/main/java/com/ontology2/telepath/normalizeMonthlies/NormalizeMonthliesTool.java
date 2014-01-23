@@ -10,6 +10,7 @@ import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.InputFormat;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 
@@ -30,6 +31,11 @@ public class NormalizeMonthliesTool extends SingleJobTool<NormalizeMonthliesOpti
     @Override
     protected Class<? extends Mapper> getMapperClass() {
         return NormalizeMonthliesMapper.class;
+    }
+
+    @Override
+    protected Class<? extends Reducer> getReducerClass() {
+        return NormalizeMonthliesReducer.class;
     }
 
     @Override
