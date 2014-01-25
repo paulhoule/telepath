@@ -19,6 +19,7 @@ public class TestSmartSingleJobTool {
     @Before
     public void setup() {
         that=new TestTool();
+        that.setBeanName("wildIsTheWind");
     }
 
     @Test
@@ -54,5 +55,10 @@ public class TestSmartSingleJobTool {
     @Test
     public void reducerClass() {
         assertEquals(TestReducer.class,that.getReducerClass());
+    }
+
+    @Test
+    public void beanName() {
+        assertEquals("wildIsTheWind",that.getName());
     }
 }

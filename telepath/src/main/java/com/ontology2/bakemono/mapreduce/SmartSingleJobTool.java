@@ -5,14 +5,16 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
+import org.springframework.beans.factory.BeanNameAware;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Set;
 
-public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass> {
+public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass> implements BeanNameAware {
 
     TypeToken type=TypeToken.of(getClass());
+    String beanName;
 
     //
     // Note that this doesn't scan interfaces,  so you can get the type of an ArrayList<X>
@@ -51,7 +53,7 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
 
     @Override
     protected String getName() {
-        return null;
+        return beanName;
     }
 
     @Override
@@ -122,6 +124,11 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
     @Override
     public Class getOptionsClass() {
         return (Class) (sniffTypeParameters(getClass(),SmartSingleJobTool.class))[0];
+    }
+
+    @Override
+    public void setBeanName(String s) {
+        beanName=s;
     }
 
     public static class NoGenericTypeInformationAvailable extends IllegalArgumentException {
