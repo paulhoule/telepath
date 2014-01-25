@@ -1,12 +1,19 @@
 package com.ontology2.bakemono.mapreduce;
 
 import com.google.common.reflect.TypeToken;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.DoubleWritable;
+import org.apache.hadoop.io.FloatWritable;
+import org.apache.hadoop.io.VIntWritable;
+import org.apache.hadoop.util.bloom.BloomFilter;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -20,6 +27,7 @@ public class TestSmartSingleJobTool {
     public void setup() {
         that=new TestTool();
         that.setBeanName("wildIsTheWind");
+        that.options=new TestOptions();
     }
 
     @Test
@@ -60,5 +68,34 @@ public class TestSmartSingleJobTool {
     @Test
     public void beanName() {
         assertEquals("wildIsTheWind",that.getName());
+    }
+
+    @Test
+    public void mapOutputKeyClass() {
+        assertEquals(FloatWritable.class,that.getMapOutputKeyClass());
+    }
+
+    @Test
+    public void mapOutputValueClass() {
+        assertEquals(BloomFilter.class,that.getMapOutputValueClass());
+    }
+
+    @Test
+    public void outputKeyClass() {
+        assertEquals(VIntWritable.class,that.getOutputKeyClass());
+    }
+
+    @Test
+    public void outputValueClass() {
+        assertEquals(DoubleWritable.class,that.getOutputValueClass());
+    }
+
+    @Test
+    public void inputs() {
+        Iterator<Path> inputs=that.getInputPaths().iterator();
+        assertEquals(new Path("/are"),inputs.next());
+        assertEquals(new Path("/friends"),inputs.next());
+        assertEquals(new Path("/electric"),inputs.next());
+        assertFalse(inputs.hasNext());
     }
 }

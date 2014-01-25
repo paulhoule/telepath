@@ -1,5 +1,7 @@
 package com.ontology2.bakemono.mapreduce;
 
+import com.google.common.base.Function;
+import static com.google.common.collect.Iterables.*;
 import com.google.common.reflect.TypeToken;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Writable;
@@ -7,6 +9,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.springframework.beans.factory.BeanNameAware;
 
+import javax.annotation.Nullable;
+import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Set;
@@ -42,6 +46,15 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
 
         return null;
     }
+
+    public static <T> T readField(Object that,String name) {
+        try {
+            Field f=that.getClass().getField(name);
+            return (T) f.get(that);
+        } catch(NoSuchFieldException|IllegalAccessException ex) {
+            return null;
+        }
+    };
 
     //
     // Try to instantiate this class without creating a subclass and something awful will
@@ -88,27 +101,42 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
 
     @Override
     protected Class<? extends Writable> getMapOutputKeyClass() {
-        return null;
+        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
+        return (Class<? extends Writable>) parameters[2];
     }
 
     @Override
     protected Class<? extends Writable> getMapOutputValueClass() {
-        return null;
+        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
+        return (Class<? extends Writable>) parameters[3];
     }
 
     @Override
     public Class<? extends Writable> getOutputKeyClass() {
-        return null;
+        Type[] parameters=sniffTypeParameters(getReducerClass(),Reducer.class);
+        return (Class<? extends Writable>) parameters[2];
     }
 
     @Override
     public Class<? extends Writable> getOutputValueClass() {
-        return null;
+        Class mapperClass=getReducerClass();
+        Type[] parameters=sniffTypeParameters(getReducerClass(),Reducer.class);
+        return (Class<? extends Writable>) parameters[3];
     }
 
     @Override
     public Iterable<Path> getInputPaths() {
-        return null;
+        Iterable<String> s=readField(options,"input");
+        if(s==null)
+            return null;
+
+        return transform(s,new Function<String,Path>() {{}
+            @Nullable
+            @Override
+            public Path apply(@Nullable String input) {
+                return new Path(input);
+            }
+        } );
     }
 
     @Override
