@@ -4,9 +4,19 @@ import com.google.common.base.Function;
 import static com.google.common.collect.Iterables.*;
 import com.google.common.reflect.TypeToken;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.mapreduce.InputFormat;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.OutputFormat;
 import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.SequenceFileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.springframework.beans.factory.BeanNameAware;
 
 import javax.annotation.Nullable;
@@ -19,6 +29,12 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
 
     TypeToken type=TypeToken.of(getClass());
     String beanName;
+    static final Function<String,Path> STRING2PATH=new Function<String,Path>() {
+        @Nullable @Override
+        public Path apply(@Nullable String input) {
+            return new Path(input);
+        }
+    };;
 
     //
     // Note that this doesn't scan interfaces,  so you can get the type of an ArrayList<X>
@@ -99,6 +115,16 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
         }
     }
 
+    protected Class<? extends Writable> getMapInputKeyClass() {
+        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
+        return (Class<? extends Writable>) parameters[0];
+    }
+
+    protected Class<? extends Writable> getMapInputValueClass() {
+        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
+        return (Class<? extends Writable>) parameters[1];
+    }
+
     @Override
     protected Class<? extends Writable> getMapOutputKeyClass() {
         Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
@@ -129,24 +155,49 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
         Iterable<String> s=readField(options,"input");
         if(s==null)
             return null;
-
-        return transform(s,new Function<String,Path>() {{}
-            @Nullable
-            @Override
-            public Path apply(@Nullable String input) {
-                return new Path(input);
-            }
-        } );
+        return transform(s, STRING2PATH);
     }
 
     @Override
     public int getNumReduceTasks() {
-        return 0;
+        Integer numReduceTasks=readField(options,"reducerCount");
+        return numReduceTasks==null ? 0 : numReduceTasks;
     }
 
     @Override
     protected Path getOutputPath() {
-        return null;
+        String s=readField(options,"output");
+        if(s==null)
+            return null;
+        return STRING2PATH.apply(s);
+    }
+
+    @Override
+    protected Class<? extends InputFormat> getInputFormatClass() {
+        Class inKey=getMapInputKeyClass();
+        Class inValue=getMapInputValueClass();
+        if ( inValue==Text.class) {
+            if(inKey==LongWritable.class) {
+                return TextInputFormat.class;
+            } else if(inKey==Text.class) {
+                return KeyValueTextInputFormat.class;
+            }
+        }
+
+        return SequenceFileInputFormat.class;
+    }
+
+    @Override
+    protected Class<? extends OutputFormat> getOutputFormatClass() {
+        Class outKey=getOutputKeyClass();
+        Class outValue=getOutputValueClass();
+        if (outKey==Text.class) {
+            if (outValue==Text.class || outValue==NullWritable.class)
+                return TextOutputFormat.class;
+        } else if (outValue==Text.class && outKey==NullWritable.class)
+            return TextOutputFormat.class;
+
+        return SequenceFileOutputFormat.class;
     }
 
     @Override

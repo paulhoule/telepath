@@ -5,6 +5,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.VIntWritable;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.util.bloom.BloomFilter;
 import org.junit.Before;
 import org.junit.Test;
@@ -93,9 +94,23 @@ public class TestSmartSingleJobTool {
     @Test
     public void inputs() {
         Iterator<Path> inputs=that.getInputPaths().iterator();
-        assertEquals(new Path("/are"),inputs.next());
+        assertEquals(new Path("/are"), inputs.next());
         assertEquals(new Path("/friends"),inputs.next());
         assertEquals(new Path("/electric"),inputs.next());
         assertFalse(inputs.hasNext());
+    } 
+    @Test
+    public void output() {
+        assertEquals(new Path("/horseheads"),that.getOutputPath());
+    }
+
+    @Test
+    public void reduceTasks() {
+        assertEquals(33,that.getNumReduceTasks());
+    }
+
+    @Test
+    public void inputFormat() {
+        assertEquals(TextInputFormat.class,that.getInputFormatClass());
     }
 }
