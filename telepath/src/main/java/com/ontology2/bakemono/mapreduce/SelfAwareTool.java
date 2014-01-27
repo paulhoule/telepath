@@ -23,9 +23,8 @@ import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Set;
 
-public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass> implements BeanNameAware {
+public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> implements BeanNameAware {
 
     TypeToken type=TypeToken.of(getClass());
     String beanName;
@@ -77,7 +76,7 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
     // happen!
     //
 
-    public SmartSingleJobTool() {
+    public SelfAwareTool() {
     }
 
     @Override
@@ -202,7 +201,7 @@ public class SmartSingleJobTool<OptionsClass> extends SingleJobTool<OptionsClass
 
     @Override
     public Class getOptionsClass() {
-        return (Class) (sniffTypeParameters(getClass(),SmartSingleJobTool.class))[0];
+        return (Class) (sniffTypeParameters(getClass(),SelfAwareTool.class))[0];
     }
 
     @Override

@@ -14,6 +14,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public abstract class SingleJobTool<OptionsClass> extends ToolBase {
@@ -79,6 +81,7 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     public Job createJob(String[] strings) throws IllegalAccessException, IOException {
         options=extractOptions(strings);
         validateOptions();
+
         configureOutputCompression();
         Job job=new Job(getConf(),getName());
         job.setJarByClass(getClass());
@@ -97,6 +100,7 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
         job.setNumReduceTasks(getNumReduceTasks());
         FileOutputFormat.setOutputPath(job, getOutputPath());
         job.setOutputFormatClass(getOutputFormatClass());
+        serializeOptions(job);
 
         // should we let output compression be configurable?  the bloom filters shouldn't be compressible
         // if they are optimally tuned,  but trying to compress a file that size won't hurt
@@ -107,6 +111,16 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
         }
 
         return job;
+    }
+
+    private void serializeOptions(Job job) throws IllegalAccessException {
+        Class that=getOptionsClass();
+        for(Field f:that.getFields()) {
+            StoreAs a=f.getAnnotation(StoreAs.class);
+            if (a!=null) {
+                job.getConfiguration().set(a.value(),f.get(options).toString());
+            }
+        }
     }
 
     private OptionsClass extractOptions(String[] strings) throws IllegalAccessException {

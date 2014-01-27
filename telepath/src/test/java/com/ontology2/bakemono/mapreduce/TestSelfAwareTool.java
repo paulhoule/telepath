@@ -1,6 +1,5 @@
 package com.ontology2.bakemono.mapreduce;
 
-import com.google.common.reflect.TypeToken;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.FloatWritable;
@@ -9,19 +8,16 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.util.bloom.BloomFilter;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static junit.framework.Assert.*;
 
-public class TestSmartSingleJobTool {
+public class TestSelfAwareTool {
     TestTool that;
 
     @Before
@@ -38,15 +34,15 @@ public class TestSmartSingleJobTool {
             add("thimble");
         }};
 
-        Type[] arguments=SmartSingleJobTool.sniffTypeParameters(target.getClass(),ArrayList.class);
+        Type[] arguments= SelfAwareTool.sniffTypeParameters(target.getClass(), ArrayList.class);
         assertEquals(1, arguments.length);
         assertEquals(String.class,arguments[0]);
     }
 
-    @Test(expected=SmartSingleJobTool.NoGenericTypeInformationAvailable.class)
+    @Test(expected=SelfAwareTool.NoGenericTypeInformationAvailable.class)
     public void detectCommonGenericsMistake() {
         List<String> target=newArrayList();
-        Type[] arguments=SmartSingleJobTool.sniffTypeParameters(target.getClass(),ArrayList.class);
+        Type[] arguments= SelfAwareTool.sniffTypeParameters(target.getClass(), ArrayList.class);
         assertEquals(1,arguments.length);
         assertEquals(String.class,arguments[0]);
     }
