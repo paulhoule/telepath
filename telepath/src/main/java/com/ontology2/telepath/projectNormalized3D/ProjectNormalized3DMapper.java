@@ -1,5 +1,6 @@
 package com.ontology2.telepath.projectNormalized3D;
 
+import com.google.common.collect.ImmutableList;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.FileSystem;
@@ -53,7 +54,7 @@ public class ProjectNormalized3DMapper extends Mapper<LongWritable,Text,Text,Flo
     String getYrmo(Context context) {
         FileSplit split=(FileSplit) context.getInputSplit();
         String name=split.getPath().toString();
-        List<String> parts=SLASH_SPLITTER.splitToList(name);
+        List<String> parts= ImmutableList.copyOf(SLASH_SPLITTER.split(name));
         return parts.get(parts.size()-2);
     }
 
