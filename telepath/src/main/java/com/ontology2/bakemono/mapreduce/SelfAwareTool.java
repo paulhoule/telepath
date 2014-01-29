@@ -2,7 +2,6 @@ package com.ontology2.bakemono.mapreduce;
 
 import com.google.common.base.Function;
 import static com.google.common.collect.Iterables.*;
-import com.google.common.reflect.TypeToken;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.NullWritable;
@@ -26,7 +25,6 @@ import java.lang.reflect.Type;
 
 public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> implements BeanNameAware {
 
-    TypeToken type=TypeToken.of(getClass());
     String beanName;
     static final Function<String,Path> STRING2PATH=new Function<String,Path>() {
         @Nullable @Override
