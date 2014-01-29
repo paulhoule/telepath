@@ -84,7 +84,7 @@ public class ProjectNormalized3DMapper extends Mapper<LongWritable,Text,Text,Flo
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         try {
-            Iterator<String> parts= SPACE_SPLITTER.split(value.toString()).iterator();
+            Iterator<String> parts= WHITESPACE_SPLITTER.split(value.toString()).iterator();
             String lang=parts.next();
             String page=parts.next();
             Long count=Long.parseLong(parts.next());
