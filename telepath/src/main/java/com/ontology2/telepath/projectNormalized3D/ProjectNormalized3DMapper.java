@@ -26,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.zip.GZIPInputStream;
 
 public class ProjectNormalized3DMapper extends Mapper<LongWritable,Text,Text,FloatWritable> {
     Log LOG= LogFactory.getLog(ProjectNormalized3DMapper.class);
@@ -47,7 +48,7 @@ public class ProjectNormalized3DMapper extends Mapper<LongWritable,Text,Text,Flo
 
     void loadNormalizationFactors(Context context,Path path) throws IOException {
         FileSystem fs=FileSystem.get(path.toUri(), context.getConfiguration());
-        InputStream in=fs.open(path);
+        InputStream in=new GZIPInputStream(fs.open(path));
         loadNormalizationFactors(in,getYrmo(context));
     }
 
