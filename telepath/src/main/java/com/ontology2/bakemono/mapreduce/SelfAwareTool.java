@@ -2,15 +2,11 @@ package com.ontology2.bakemono.mapreduce;
 
 import com.google.common.base.Function;
 import static com.google.common.collect.Iterables.*;
+
+import com.ontology2.bakemono.joins.*;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.NullWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.Writable;
-import org.apache.hadoop.mapreduce.InputFormat;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.OutputFormat;
-import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
@@ -222,5 +218,32 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
         public NoGenericTypeInformationAvailable(Throwable cause) {
             super(cause);
         }
+    }
+
+    protected Class<? extends RawComparator> getGroupingComparatorClass() {
+        Class mapInput=getMapInputKeyClass();
+        if(TaggedTextItem.class.isAssignableFrom(mapInput)) {
+            return TaggedTextKeyGroupComparator.class;
+        }
+
+        return super.getGroupingComparatorClass();
+    }
+
+    protected Class<? extends Partitioner> getPartitionerClass() {
+        Class mapInput=getMapInputKeyClass();
+        if(TaggedItem.class.isAssignableFrom(mapInput)) {
+            return TaggedKeyPartitioner.class;
+        }
+
+        return super.getPartitionerClass();
+    }
+
+    protected Class<? extends RawComparator> getSortComparatorClass() {
+        Class mapInput=getMapInputKeyClass();
+        if(TaggedItem.class.isAssignableFrom(mapInput)) {
+            return TaggedKeyGroupComparator.class;
+        }
+
+        return super.getGroupingComparatorClass();
     }
 }

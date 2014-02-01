@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.ontology2.bakemono.mapred.ToolBase;
 import com.ontology2.centipede.parser.OptionParser;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.RawComparator;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.GzipCodec;
@@ -35,6 +36,18 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
 
     protected Class<? extends Reducer> getReducerClass() {
         return Reducer.class;
+    }
+
+    protected Class<? extends RawComparator> getGroupingComparatorClass() {
+        return null;
+    }
+
+    protected Class<? extends Partitioner> getPartitionerClass() {
+        return null;
+    }
+
+    protected Class<? extends RawComparator> getSortComparatorClass() {
+        return null;
     }
 
     abstract public Class<? extends Writable> getOutputKeyClass();
@@ -91,6 +104,18 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
         job.setReducerClass(getReducerClass());
         job.setOutputKeyClass(getOutputKeyClass());
         job.setOutputValueClass(getOutputValueClass());
+
+        if(getGroupingComparatorClass()!=null) {
+            job.setGroupingComparatorClass(getGroupingComparatorClass());
+        }
+
+        if(getPartitionerClass()!=null) {
+            job.setPartitionerClass(getPartitionerClass());
+        }
+
+        if(getPartitionerClass()!=null) {
+            job.setSortComparatorClass(getSortComparatorClass());
+        }
 
         job.setInputFormatClass(getInputFormatClass());
         for(Path p:getInputPaths()) {

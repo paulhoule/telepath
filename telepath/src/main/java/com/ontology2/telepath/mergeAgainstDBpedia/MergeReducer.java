@@ -1,0 +1,29 @@
+package com.ontology2.telepath.mergeAgainstDBpedia;
+
+import com.ontology2.bakemono.joins.TaggedTextItem;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+public class MergeReducer extends Reducer<TaggedTextItem,TaggedTextItem,Text,Text> {
+
+    @Override
+    protected void reduce(TaggedTextItem key, Iterable<TaggedTextItem> values, Context context) throws IOException, InterruptedException {
+        Text toValue=null;
+        for(TaggedTextItem value:values) {
+            int tag=value.getTag().get();
+            switch(tag) {
+                case 1:
+                    toValue=key.getKey();      // we can write the key because it exists
+                    break;
+                case 2:
+                    toValue=new Text(value.getKey());    // we will write the value because we redirect to it
+                    break;
+                case 3:
+                    if(toValue!=null)
+                    context.write(toValue,value.getKey());
+            }
+        }
+    }
+}
