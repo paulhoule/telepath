@@ -1,6 +1,10 @@
 package com.ontology2.bakemono.mapreduce;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
+import com.ontology2.bakemono.joins.GeneralJoinMapper;
 import com.ontology2.bakemono.mapred.ToolBase;
 import com.ontology2.centipede.parser.OptionParser;
 import org.apache.hadoop.fs.Path;
@@ -54,6 +58,11 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     abstract public Class<? extends Writable> getOutputValueClass();
 
     abstract public Iterable<Path> getInputPaths();
+
+    public Multimap<Integer,Path> getTagMap() {
+        return HashMultimap.create();
+    }
+
     abstract public int getNumReduceTasks();
     protected abstract Path getOutputPath();
     protected Class<? extends OutputFormat> getOutputFormatClass() {
@@ -120,6 +129,16 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
         job.setInputFormatClass(getInputFormatClass());
         for(Path p:getInputPaths()) {
             FileInputFormat.addInputPath(job, p);
+        }
+
+        Multimap<Integer,Path> tagMap=getTagMap();
+        if(tagMap!=null && !tagMap.isEmpty()) {
+            for(Integer key:tagMap.keySet()) {
+                Iterable<Path> paths=tagMap.get(key);
+                String configKey= GeneralJoinMapper.INPUTS+"."+key;
+                String configValue=Joiner.on(",").join(paths);
+                job.getConfiguration().set(configKey,configValue);
+            }
         }
 
         job.setNumReduceTasks(getNumReduceTasks());

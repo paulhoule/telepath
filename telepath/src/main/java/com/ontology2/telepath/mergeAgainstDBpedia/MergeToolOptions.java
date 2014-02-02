@@ -1,5 +1,6 @@
 package com.ontology2.telepath.mergeAgainstDBpedia;
 
+import com.ontology2.bakemono.mapreduce.InputPath;
 import com.ontology2.centipede.parser.ContextualConverter;
 import com.ontology2.centipede.parser.HasOptions;
 import com.ontology2.centipede.parser.Option;
@@ -11,20 +12,20 @@ public class MergeToolOptions implements HasOptions {
     @Option(name="R",description="number of reducers")
     public int reducerCount;
 
-    @Option(name="threshold",description="minimum number of views to acknowledge existence")
-    public int threshold;
-
     @Option(description="input and output file default directory")
     public String dir;
 
-    @Option(description="input files",contextualConverter=PathConverter.class)
-    public List<String> input;
-
+    @InputPath(1)
     @Option(description="page ID file",contextualConverter=PathConverter.class)
     public String pageIds;
 
+    @InputPath(2)
     @Option(description="transitive redirects file",contextualConverter=PathConverter.class)
     public String transitiveRedirects;
+
+    @InputPath(3)
+    @Option(description="input files",contextualConverter=PathConverter.class)
+    public List<String> input;
 
     @Option(description="output files",contextualConverter=PathConverter.class)
     public String output;

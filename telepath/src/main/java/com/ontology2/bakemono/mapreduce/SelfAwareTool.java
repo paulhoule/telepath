@@ -2,8 +2,17 @@ package com.ontology2.bakemono.mapreduce;
 
 import com.google.common.base.Function;
 import static com.google.common.collect.Iterables.*;
+import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.newHashMap;
+import static com.google.common.collect.Multimaps.newSetMultimap;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import com.ontology2.bakemono.joins.*;
+import com.ontology2.centipede.parser.HasOptions;
+import com.sun.javaws.exceptions.InvalidArgumentException;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.*;
@@ -18,9 +27,11 @@ import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
 
 public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> implements BeanNameAware {
-
+    Log LOG= LogFactory.getLog(SelfAwareTool.class);
     String beanName;
     static final Function<String,Path> STRING2PATH=new Function<String,Path>() {
         @Nullable @Override
@@ -40,8 +51,12 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
 
         if(that instanceof ParameterizedType) {
             ParameterizedType type=(ParameterizedType) that;
-            if (type.getRawType()==targetClass)
+            if (type.getRawType()==targetClass) {
                 return type.getActualTypeArguments();
+            } else if (type.getRawType() instanceof Class) {
+                Class clazz=(Class) type.getRawType();
+                return sniffTypeParameters(clazz.getGenericSuperclass(),targetClass);
+            }
         }
 
         if(that==targetClass)
@@ -110,45 +125,89 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
 
     protected Class<? extends Writable> getMapInputKeyClass() {
         Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return (Class<? extends Writable>) parameters[0];
+        return toClass(parameters[0]);
     }
 
     protected Class<? extends Writable> getMapInputValueClass() {
         Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return (Class<? extends Writable>) parameters[1];
+        return toClass(parameters[1]);
     }
 
     @Override
     protected Class<? extends Writable> getMapOutputKeyClass() {
         Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return (Class<? extends Writable>) parameters[2];
+        return toClass(parameters[2]);
     }
 
     @Override
     protected Class<? extends Writable> getMapOutputValueClass() {
         Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return (Class<? extends Writable>) parameters[3];
+        return toClass(parameters[3]);
     }
 
     @Override
     public Class<? extends Writable> getOutputKeyClass() {
         Type[] parameters=sniffTypeParameters(getReducerClass(),Reducer.class);
-        return (Class<? extends Writable>) parameters[2];
+        return toClass(parameters[2]);
     }
 
     @Override
     public Class<? extends Writable> getOutputValueClass() {
         Class mapperClass=getReducerClass();
         Type[] parameters=sniffTypeParameters(getReducerClass(),Reducer.class);
-        return (Class<? extends Writable>) parameters[3];
+        return toClass(parameters[3]);
     }
+
+    public static Class toClass(Type t) {
+        if (t instanceof Class)
+            return (Class) t;
+
+        if (t instanceof ParameterizedType)
+            return (Class) ((ParameterizedType) t).getRawType();
+
+        throw new RuntimeException("Can't identify type ["+t+"] as a class");
+    }
+
+    protected Multimap<Integer,Path> tagMap=HashMultimap.create();
+
+    //
+    // Note that this has the side effect of setting the tagMap
+    //
 
     @Override
     public Iterable<Path> getInputPaths() {
+        Map<Field,Integer> declaredInputPaths=searchForInputPaths(getOptionsClass());
+        if(declaredInputPaths.size()>1) {
+            List<Path> allPaths=newArrayList();
+            tagMap=HashMultimap.create();
+            for(Map.Entry<Field,Integer> pair:declaredInputPaths.entrySet()) {
+                try {
+                    Object o=pair.getKey().get(options);
+                    if (o instanceof String) {
+                        Path that=STRING2PATH.apply((String) o);
+                        allPaths.add(that);
+                        tagMap.put(pair.getValue(),that);
+                    } else if(o instanceof Iterable) {
+                        for(Path that:transform((Iterable<String>) o,STRING2PATH)) {
+                            allPaths.add(that);
+                            tagMap.put(pair.getValue(),that);
+                        }
+                    }
+                } catch(IllegalAccessException iae) {
+                    LOG.warn("Java access controls blocked access to @InputPath on field "+pair.getKey());
+                }
+            }
+        }
+
         Iterable<String> s=readField(options,"input");
         if(s==null)
             return null;
         return transform(s, STRING2PATH);
+    }
+
+    @Override
+    public Multimap<Integer,Path> getTagMap() {
+        return tagMap;
     }
 
     @Override
@@ -220,17 +279,25 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
         }
     }
 
-    protected Class<? extends RawComparator> getGroupingComparatorClass() {
-        Class mapInput=getMapInputKeyClass();
-        if(TaggedTextItem.class.isAssignableFrom(mapInput)) {
+    //
+    // Note the following is not really correct,  but it's tricky to make sense of
+    // what we're getting back from reflection.  In particular,  when we see the type
+    // parameters of Mapper,  we see a type variable rather than the actual type.  I
+    // think we could figure the type because the type variable is filled in down
+    // the inheritence stack,  but this will get the app working for now
+    //
+
+    public Class<? extends RawComparator> getGroupingComparatorClass() {
+        Class mapInput=getMapOutputKeyClass();
+        if(TaggedItem.class.isAssignableFrom(mapInput)) {
             return TaggedTextKeyGroupComparator.class;
         }
 
         return super.getGroupingComparatorClass();
     }
 
-    protected Class<? extends Partitioner> getPartitionerClass() {
-        Class mapInput=getMapInputKeyClass();
+    public Class<? extends Partitioner> getPartitionerClass() {
+        Class mapInput=getMapOutputKeyClass();
         if(TaggedItem.class.isAssignableFrom(mapInput)) {
             return TaggedKeyPartitioner.class;
         }
@@ -238,12 +305,23 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
         return super.getPartitionerClass();
     }
 
-    protected Class<? extends RawComparator> getSortComparatorClass() {
-        Class mapInput=getMapInputKeyClass();
+    public Class<? extends RawComparator> getSortComparatorClass() {
+        Class mapInput=getMapOutputKeyClass();
         if(TaggedItem.class.isAssignableFrom(mapInput)) {
-            return TaggedKeyGroupComparator.class;
+            return TaggedTextKeySortComparator.class;
         }
 
         return super.getGroupingComparatorClass();
+    }
+
+    public static Map<Field,Integer> searchForInputPaths(Class optionClass) {
+        Map<Field,Integer> map=newHashMap();
+        for(Field f:optionClass.getFields()) {
+            InputPath p=f.getAnnotation(InputPath.class);
+            if(p!=null)
+                map.put(f,p.value());
+        }
+
+        return map;
     }
 }
