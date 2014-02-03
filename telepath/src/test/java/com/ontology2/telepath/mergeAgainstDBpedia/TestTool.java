@@ -1,5 +1,6 @@
 package com.ontology2.telepath.mergeAgainstDBpedia;
 import com.ontology2.bakemono.joins.TaggedKeyPartitioner;
+import com.ontology2.bakemono.joins.TaggedTextItem;
 import com.ontology2.bakemono.joins.TaggedTextKeyGroupComparator;
 import com.ontology2.bakemono.joins.TaggedTextKeySortComparator;
 import org.apache.hadoop.conf.Configuration;
@@ -45,8 +46,10 @@ public class TestTool {
             "800"
         };
 
+        assertEquals(TaggedTextItem.class,countDBpediaMerge.getMapOutputKeyClass());
+        assertEquals(TaggedTextItem.class,countDBpediaMerge.getMapOutputValueClass());
         Job j=countDBpediaMerge.createJob(args);
-        assertEquals(TaggedTextKeyGroupComparator.class,countDBpediaMerge.getGroupingComparatorClass());
+        assertEquals(TaggedTextKeyGroupComparator.class, countDBpediaMerge.getGroupingComparatorClass());
         assertEquals(MergeMapper.class,j.getMapperClass());
         assertEquals(MergeReducer.class,j.getReducerClass());
         assertEquals(TaggedTextKeyGroupComparator.class, j.getGroupingComparator().getClass());

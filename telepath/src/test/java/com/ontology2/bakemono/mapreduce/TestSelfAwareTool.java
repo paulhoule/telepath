@@ -34,7 +34,7 @@ public class TestSelfAwareTool {
             add("thimble");
         }};
 
-        Type[] arguments= SelfAwareTool.sniffTypeParameters(target.getClass(), ArrayList.class);
+        Type[] arguments= TypeDetective.sniffTypeParameters(target.getClass(), ArrayList.class);
         assertEquals(1, arguments.length);
         assertEquals(String.class,arguments[0]);
     }
@@ -42,7 +42,7 @@ public class TestSelfAwareTool {
     @Test(expected=SelfAwareTool.NoGenericTypeInformationAvailable.class)
     public void detectCommonGenericsMistake() {
         List<String> target=newArrayList();
-        Type[] arguments= SelfAwareTool.sniffTypeParameters(target.getClass(), ArrayList.class);
+        Type[] arguments= TypeDetective.sniffTypeParameters(target.getClass(), ArrayList.class);
         assertEquals(1,arguments.length);
         assertEquals(String.class,arguments[0]);
     }

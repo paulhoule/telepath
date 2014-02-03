@@ -4,12 +4,10 @@ import com.google.common.base.Function;
 import static com.google.common.collect.Iterables.*;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.collect.Multimaps.newSetMultimap;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ontology2.bakemono.joins.*;
-import com.ontology2.centipede.parser.HasOptions;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.Path;
@@ -37,38 +35,8 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
         public Path apply(@Nullable String input) {
             return new Path(input);
         }
-    };;
+    };
 
-    //
-    // Note that this doesn't scan interfaces,  so you can get the type of an ArrayList<X>
-    // but not the type of a List<X>
-    //
-
-    public static Type[] sniffTypeParameters(Type that,Class targetClass) {
-        if(that==Object.class)
-            return null;
-
-        if(that instanceof ParameterizedType) {
-            ParameterizedType type=(ParameterizedType) that;
-            if (type.getRawType()==targetClass) {
-                return type.getActualTypeArguments();
-            } else if (type.getRawType() instanceof Class) {
-                Class clazz=(Class) type.getRawType();
-                return sniffTypeParameters(clazz.getGenericSuperclass(),targetClass);
-            }
-        }
-
-        if(that==targetClass)
-            throw new NoGenericTypeInformationAvailable("I can't read the generic type parameter for ["+targetClass+"] unless you subclass it with a concrete class.");
-
-        if(that instanceof Class) {
-            Class type=(Class) that;
-            Type uber=type.getGenericSuperclass();
-            return sniffTypeParameters(uber,targetClass);
-        }
-
-        return null;
-    }
 
     public static <T> T readField(Object that,String name) {
         try {
@@ -122,47 +90,58 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
         }
     }
 
-    protected Class<? extends Writable> getMapInputKeyClass() {
-        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return toClass(parameters[0]);
+    public Class<? extends Writable> getMapInputKeyClass() {
+        Type[] parameters= TypeDetective.sniffTypeParameters(getMapperClass(), Mapper.class);
+        return toWritableClass(parameters[0]);
     }
 
-    protected Class<? extends Writable> getMapInputValueClass() {
-        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return toClass(parameters[1]);
-    }
-
-    @Override
-    protected Class<? extends Writable> getMapOutputKeyClass() {
-        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return toClass(parameters[2]);
+    public Class<? extends Writable> getMapInputValueClass() {
+        Type[] parameters= TypeDetective.sniffTypeParameters(getMapperClass(), Mapper.class);
+        return toWritableClass(parameters[1]);
     }
 
     @Override
-    protected Class<? extends Writable> getMapOutputValueClass() {
-        Type[] parameters=sniffTypeParameters(getMapperClass(),Mapper.class);
-        return toClass(parameters[3]);
+    public Class<? extends Writable> getMapOutputKeyClass() {
+        Type[] parameters= TypeDetective.sniffTypeParameters(getMapperClass(), Mapper.class);
+        return toWritableClass(parameters[2]);
+    }
+
+    @Override
+    public Class<? extends Writable> getMapOutputValueClass() {
+        Type[] parameters= TypeDetective.sniffTypeParameters(getMapperClass(), Mapper.class);
+        return toWritableClass(parameters[3]);
     }
 
     @Override
     public Class<? extends Writable> getOutputKeyClass() {
-        Type[] parameters=sniffTypeParameters(getReducerClass(),Reducer.class);
-        return toClass(parameters[2]);
+        Type[] parameters= TypeDetective.sniffTypeParameters(getReducerClass(), Reducer.class);
+        return toWritableClass(parameters[2]);
     }
 
     @Override
     public Class<? extends Writable> getOutputValueClass() {
         Class mapperClass=getReducerClass();
-        Type[] parameters=sniffTypeParameters(getReducerClass(),Reducer.class);
-        return toClass(parameters[3]);
+        Type[] parameters= TypeDetective.sniffTypeParameters(getReducerClass(), Reducer.class);
+        return toWritableClass(parameters[3]);
     }
 
-    public static Class toClass(Type t) {
+    public static Class toWritableClass(Type t) {
         if (t instanceof Class)
             return (Class) t;
 
-        if (t instanceof ParameterizedType)
-            return (Class) ((ParameterizedType) t).getRawType();
+        if (t instanceof ParameterizedType) {
+            ParameterizedType pt=(ParameterizedType) t;
+            // yeah yeah,  some day this gets generalized and spun out into it's own class
+            // which can be wired up through Spring if we want to -- the gist of this is that
+            // there is an "official" implementation of a particular concrete subclass for a
+            // given generic type
+            if(TaggedItem.class.equals(pt.getRawType())) {
+                if(pt.getActualTypeArguments()[0].equals(Text.class))
+                    return TaggedTextItem.class;
+            }
+
+            return (Class) pt.getRawType();
+        }
 
         throw new RuntimeException("Can't identify type ["+t+"] as a class");
     }
@@ -253,7 +232,7 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
 
     @Override
     public Class getOptionsClass() {
-        return (Class) (sniffTypeParameters(getClass(),SelfAwareTool.class))[0];
+        return (Class) (TypeDetective.sniffTypeParameters(getClass(), SelfAwareTool.class))[0];
     }
 
     @Override
