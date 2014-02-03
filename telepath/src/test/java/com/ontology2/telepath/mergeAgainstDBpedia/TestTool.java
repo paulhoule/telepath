@@ -2,7 +2,6 @@ package com.ontology2.telepath.mergeAgainstDBpedia;
 import com.ontology2.bakemono.joins.TaggedKeyPartitioner;
 import com.ontology2.bakemono.joins.TaggedTextKeyGroupComparator;
 import com.ontology2.bakemono.joins.TaggedTextKeySortComparator;
-import com.sun.scenario.effect.Merge;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapreduce.Job;
 import org.junit.Before;
