@@ -10,7 +10,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ontology2.bakemono.joins.*;
 import com.ontology2.centipede.parser.HasOptions;
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.Path;
