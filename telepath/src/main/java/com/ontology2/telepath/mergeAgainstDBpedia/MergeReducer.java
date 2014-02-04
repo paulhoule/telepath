@@ -16,9 +16,7 @@ public class MergeReducer extends Reducer<TaggedTextItem,TaggedTextItem,Text,Tex
     protected void reduce(TaggedTextItem key, Iterable<TaggedTextItem> values, Context context) throws IOException, InterruptedException {
         Text toValue=null;
 
-        LOG.info("Processed key ["+key.getKey()+"] with tag ["+key.getTag().get()+"]");
         for(TaggedTextItem value:values) {
-            LOG.info("Processed value ["+value.getKey()+"] with tag ["+value.getTag().get()+"]");
             int tag=value.getTag().get();
             switch(tag) {
                 case 1:
