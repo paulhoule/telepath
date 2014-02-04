@@ -175,6 +175,8 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
                     LOG.warn("Java access controls blocked access to @InputPath on field "+pair.getKey());
                 }
             }
+
+            return allPaths;
         }
 
         Iterable<String> s=readField(options,"input");

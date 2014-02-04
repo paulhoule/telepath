@@ -1,9 +1,11 @@
 package com.ontology2.telepath.mergeAgainstDBpedia;
+import com.google.common.collect.Sets;
 import com.ontology2.bakemono.joins.TaggedKeyPartitioner;
 import com.ontology2.bakemono.joins.TaggedTextItem;
 import com.ontology2.bakemono.joins.TaggedTextKeyGroupComparator;
 import com.ontology2.bakemono.joins.TaggedTextKeySortComparator;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.Set;
 
 import static junit.framework.TestCase.*;
 
@@ -46,9 +49,17 @@ public class TestTool {
             "800"
         };
 
+
         assertEquals(TaggedTextItem.class,countDBpediaMerge.getMapOutputKeyClass());
         assertEquals(TaggedTextItem.class,countDBpediaMerge.getMapOutputValueClass());
         Job j=countDBpediaMerge.createJob(args);
+        Set<Path> inputPaths= Sets.newHashSet(countDBpediaMerge.getInputPaths());
+        assertEquals(3,inputPaths.size());
+        assertTrue(inputPaths.contains(new Path("/aligator")));
+        assertTrue(inputPaths.contains(new Path("/bear")));
+        assertTrue(inputPaths.contains(new Path("/civet")));
+        assertFalse(inputPaths.contains(new Path("/dingo")));
+
         assertEquals(TaggedTextKeyGroupComparator.class, countDBpediaMerge.getGroupingComparatorClass());
         assertEquals(MergeMapper.class,j.getMapperClass());
         assertEquals(MergeReducer.class,j.getReducerClass());
