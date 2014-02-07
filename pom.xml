@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ontology2</groupId>
   <artifactId>telepath-parent</artifactId>
-  <version>t20140207</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Telepath Parent Project</name>
   <url>https://github.com/paulhoule/telepath</url>
