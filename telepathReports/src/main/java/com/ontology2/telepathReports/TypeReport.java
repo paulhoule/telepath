@@ -6,11 +6,13 @@ import freemarker.template.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
@@ -24,10 +26,18 @@ public class TypeReport extends CommandLineApplication {
 
     @Override
     protected void _run(String[] strings) throws Exception {
+        String webBase="C:\\webbase\\";
+        String webPrefix="reports";
+        String reportType="typeReport";
+        String guid= UUID.randomUUID().toString();
+
         Query query=sparqlService.getQuery("/com/ontology2/telepathReports/typeReport.sparql");
         ResultSet results=sparqlService.select(query);
         Map<String,Object> model=materializationService.createModel(results);
-        Writer out=new OutputStreamWriter(System.out);
-        templateService.template("typeReport.ftl",model,out);
+        FluentFile baseFile=new FluentFile(webBase).slash(webPrefix).slash(reportType).slash(guid);
+        FluentFile outfile=baseFile.slash("typeReport.html");
+        outfile.ensureDir();
+        templateService.template("typeReport.ftl", model, outfile.writer());
+        System.out.println(outfile.toURI());
     }
 }

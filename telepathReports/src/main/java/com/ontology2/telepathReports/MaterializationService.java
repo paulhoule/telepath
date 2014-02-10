@@ -1,7 +1,10 @@
 package com.ontology2.telepathReports;
 
+import com.hp.hpl.jena.datatypes.RDFDatatype;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Literal;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Iterator;
@@ -22,7 +25,7 @@ public class MaterializationService {
             rowz.add(rowOut);
             while(names.hasNext()) {
                 String name=names.next();
-                rowOut.put(name, row.get(name));
+                rowOut.put(name, flattenNode(row.get(name)));
             }
         }
         return rowz;
@@ -32,5 +35,39 @@ public class MaterializationService {
         Map<String,Object> root=newHashMap();
         root.put("rows",materializeResultSet(results));
         return root;
+    }
+
+    public Object flattenNode(Object o) {
+        if(!(o instanceof Literal))
+            return o;
+
+        Literal that=(Literal) o;
+        RDFDatatype t=that.getDatatype();
+        if (t== XSDDatatype.XSDfloat)
+            return that.getFloat();
+
+        if (t== XSDDatatype.XSDdouble)
+            return that.getDouble();
+
+        if (t== XSDDatatype.XSDinteger || t==XSDDatatype.XSDint)
+            return that.getInt();
+
+        if (t==XSDDatatype.XSDlong)
+            return that.getLong();
+
+        if (t==XSDDatatype.XSDshort)
+            return that.getShort();
+
+        if (t==XSDDatatype.XSDboolean)
+            return that.getBoolean();
+
+        if (t==XSDDatatype.XSDstring)
+            return that.getString();
+
+        // XXX -- it would be nice to have support for decimal,  datetime,  etc.
+        // one of the harder things to what to do about language tags...  in some cases we want to deep
+        // six them,  other times we want to keep them
+
+        return that;
     }
 }
