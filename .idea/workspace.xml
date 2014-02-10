@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1aafd1e0-1e03-4f29-ab7a-e00afb288850" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_20.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/pom.xml" afterPath="$PROJECT_DIR$/telepathReports/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/telepathReports.iml" afterPath="$PROJECT_DIR$/telepathReports/telepathReports.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telepath-parent.iws" />
@@ -89,7 +92,16 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/telepathReports/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="36" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="248" max-vertical-offset="1666">
+            <state line="49" column="17" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1751">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="typeReport.ftl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="11" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
               <folding />
             </state>
           </provider>
@@ -107,7 +119,7 @@
       <file leaf-file-name="TypeReport.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="55" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.7053942" vertical-offset="0" max-vertical-offset="731">
+            <state line="52" column="22" selection-start="1943" selection-end="1943" vertical-scroll-proportion="0.8802817" vertical-offset="259" max-vertical-offset="1054">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,7 +141,7 @@
       <file leaf-file-name="typeReport.sparql" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="16" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+            <state line="6" column="16" selection-start="239" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
               <folding />
             </state>
           </provider>
@@ -149,12 +161,13 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/telepathSql/pom.xml" />
-        <option value="$PROJECT_DIR$/telepathReports/pom.xml" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports.java" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/resources/telepathReports/typeReport.sparql" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/Statics.java" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java" />
+        <option value="$PROJECT_DIR$/telepathReports/pom.xml" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" />
       </list>
     </option>
@@ -604,12 +617,16 @@
       <created>1392057773255</created>
       <updated>1392057773255</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create wrapper for the sparql service that handles some issues">
+      <created>1392059686788</created>
+      <updated>1392059686789</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="-8" width="1040" height="1256" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -628,8 +645,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32985204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36914062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32985204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -638,6 +655,7 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.sparql" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ftl" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -654,7 +672,8 @@
     <MESSAGE value="add telepath reports project&#10;" />
     <MESSAGE value="add jena dependency" />
     <MESSAGE value="first report generator that passes smoke test&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="first report generator that passes smoke test&#10;" />
+    <MESSAGE value="create wrapper for the sparql service that handles some issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="create wrapper for the sparql service that handles some issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -664,23 +683,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/telepathReports/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="36" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0" vertical-offset="248" max-vertical-offset="1666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="16" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
           <folding />
         </state>
       </provider>
@@ -708,9 +713,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="16" selection-start="239" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="11" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="17" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1751">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="55" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.7053942" vertical-offset="0" max-vertical-offset="731">
+        <state line="52" column="22" selection-start="1943" selection-end="1943" vertical-scroll-proportion="0.8802817" vertical-offset="259" max-vertical-offset="1054">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
