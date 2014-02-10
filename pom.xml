@@ -45,6 +45,7 @@
   <modules>
     <module>telepath</module>
     <module>telepathSql</module>
+    <module>telepathReports</module>
   </modules>
   <build>
     <plugins>

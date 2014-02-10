@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76435d7d-251e-4e02-853d-e35a2446f656" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telepathSql.iws" />
@@ -70,7 +69,7 @@
       <file leaf-file-name="applicationContext.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/com/ontology2/telepathSql/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="87" selection-start="594" selection-end="594" vertical-scroll-proportion="0.14934114" vertical-offset="0" max-vertical-offset="683">
+            <state line="6" column="87" selection-start="594" selection-end="594" vertical-scroll-proportion="0.21030928" vertical-offset="0" max-vertical-offset="561">
               <folding />
             </state>
           </provider>
@@ -124,10 +123,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2809" />
-    <option name="y" value="198" />
-    <option name="width" value="1333" />
-    <option name="height" value="1182" />
+    <option name="x" value="755" />
+    <option name="y" value="371" />
+    <option name="width" value="1278" />
+    <option name="height" value="984" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -458,11 +457,15 @@
       <created>1390267206683</created>
       <updated>1390267206683</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add pom file to version control&#10;">
+      <created>1391792206531</created>
+      <updated>1391792206531</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2809" y="198" width="1333" height="1182" extended-state="0" />
+    <frame x="755" y="371" width="1278" height="984" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -481,8 +484,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33181474" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283721" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34627575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40250856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -505,7 +508,8 @@
     <MESSAGE value="issue #2 -- store hit information in mysql,  straw man implementation" />
     <MESSAGE value="issue #2 -- store hit information in mysql,  straw man implementation&#10;" />
     <MESSAGE value="issue #2 -- store hit information in mysql,  straw man implementation (actually put all the files in VC)&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="issue #2 -- store hit information in mysql,  straw man implementation (actually put all the files in VC)&#10;" />
+    <MESSAGE value="add pom file to version control&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pom file to version control&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -566,7 +570,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com/ontology2/telepathSql/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="87" selection-start="594" selection-end="594" vertical-scroll-proportion="0.14934114" vertical-offset="0" max-vertical-offset="683">
+        <state line="6" column="87" selection-start="594" selection-end="594" vertical-scroll-proportion="0.21030928" vertical-offset="0" max-vertical-offset="561">
           <folding />
         </state>
       </provider>

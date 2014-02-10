@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/telepath/telepath.iml" filepath="$PROJECT_DIR$/telepath/telepath.iml" />
       <module fileurl="file://$PROJECT_DIR$/telepath-parent.iml" filepath="$PROJECT_DIR$/telepath-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/telepathReports/telepathReports.iml" filepath="$PROJECT_DIR$/telepathReports/telepathReports.iml" />
       <module fileurl="file://$PROJECT_DIR$/telepathSql/telepathSql.iml" filepath="$PROJECT_DIR$/telepathSql/telepathSql.iml" />
     </modules>
   </component>
