@@ -1,0 +1,7 @@
+prefix public: <http://rdf.basekb.com/public/>
+
+select ?type (COUNT(?s) AS ?cnt) (SUM(?eye) AS ?sum) where {
+   ?s a ?type .
+   ?s public:subjectiveEye3D ?eye .
+   FILTER(STRSTARTS(STR(?type), "http://dbpedia.org/ontology")) .
+} GROUP BY ?type
