@@ -1,13 +1,11 @@
-<html>
- <head>
-  <title>Alive and Kicking</title>
- </head>
- <body>
   <table>
-    <tr><th>#</th>type</th><th>total importance</th><th>instance count</th>
+    <tr><th>#</th><th>instance</th><th>importance</th><th>percentage of total importance</th>
     <#list rows as row >
-    <tr><td>${row.i}</td><td>${row.s}</td><td>${row.eye}</td></tr>
+    <tr>
+      <td>${row.i}</td>
+      <td><a href="${row.wikipediaLink}">${row.shortSubject}</a></td>
+      <td>${row.eye?string("0.##E0")}</td>
+      <td>${row.eyePercentage?string("0.##E0")}</td>
+    </tr>
     </#list>
   <table>
- </body>
-</html>

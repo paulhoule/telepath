@@ -16,15 +16,19 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 
 //
-// Note that this is definitely NOT packaged as a Spring-configured `Service` because
+// Note that this is definitely NOT packaged as a Spring-configured `Service` because it will
+// be configured again and again inside the same application for different reports
 //
+
 public class URIRewriter {
     PrefixMapping mapping;
     Multimap<String,Rule> linkMap;   // sourceField -> (destinationField, function)
 
     {
         mapping=new PrefixMapping.Factory().create();
+        // XXX -- make easily configurable
         mapping.setNsPrefix("ontology","http://dbpedia.org/ontology/");
+        mapping.setNsPrefix("dbpedia","http://dbpedia.org/resource/");
         linkMap= ArrayListMultimap.create();
     }
 
@@ -35,6 +39,16 @@ public class URIRewriter {
                 for(Rule that:linkMap.get(key))
                     row.put(that.getMapsTo(),that.getFn().apply(row.get(key)));
             }
+        }
+    }
+
+    public void enrichModel(Map<String,Object> model) {
+        enrichModel(model,"rows");
+    }
+
+    public void enrichModel(Map<String,Object> model,String rowSetName) {
+        for(Map<String,Object> row: (List<Map<String,Object>>) model.get(rowSetName)) {
+            enrichRow(row);
         }
     }
 
@@ -49,9 +63,9 @@ public class URIRewriter {
 
     public class Rule {
         private final String mapsTo;
-        private final Function<Object,String> fn;
+        private final Function<Object,Object> fn;
 
-        public Rule(String mapsTo,Function<Object,String> fn) {
+        public Rule(String mapsTo,Function<Object,Object> fn) {
             this.mapsTo=mapsTo;
             this.fn=fn;
         }
@@ -60,13 +74,13 @@ public class URIRewriter {
             return mapsTo;
         }
 
-        private Function<Object,String> getFn() {
+        private Function<Object,Object> getFn() {
             return fn;
         }
     }
 
     public void shorten(String fromKey,String toKey) {
-        linkMap.put(fromKey,new Rule(toKey,new Function<Object,String>() {
+        linkMap.put(fromKey,new Rule(toKey,new Function<Object,Object>() {
             @Override
             public String apply(@Nullable Object o) {
                 return rewrite(o);
@@ -79,7 +93,7 @@ public class URIRewriter {
     // with the value in theMap
     //
     public void rebase(String fromKey,String toKey, final String extension,final Map<String,String> theMap) {
-        linkMap.put(fromKey,new Rule(toKey,new Function<Object,String>() {
+        linkMap.put(fromKey,new Rule(toKey,new Function<Object,Object>() {
             @Override
             public String apply(@Nullable Object o) {
                 String shortURI=rewrite(o);
@@ -88,6 +102,15 @@ public class URIRewriter {
                         shortURI=e.getValue() + shortURI.substring(e.getKey().length()) + extension;
                 }
                 return shortURI;
+            }
+        }));
+    }
+
+    public <T> void applyFn(String fromKey,String toKey,final Function<T,Object> fn) {
+        linkMap.put(fromKey,new Rule(toKey,new Function<Object,Object>() {
+            @Override
+            public Object apply(@Nullable Object o) {
+                return fn.apply((T) o);
             }
         }));
     }
