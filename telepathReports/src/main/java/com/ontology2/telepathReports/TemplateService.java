@@ -4,6 +4,8 @@ import freemarker.template.*;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Map;
 
@@ -21,6 +23,11 @@ public class TemplateService {
     }
 
     public void template(String templateId,Map<String,Object> model,Writer w) throws IOException, TemplateException {
-        c.getTemplate("typeReport.ftl").process(model,w);
+        StringWriter innerWriter=new StringWriter();
+        Template innerTemplate=c.getTemplate(templateId);
+        innerTemplate.process(model, innerWriter);
+        model.put("body",innerWriter.toString());
+
+        c.getTemplate("masterTemplate.ftl").process(model,w);
     }
 }

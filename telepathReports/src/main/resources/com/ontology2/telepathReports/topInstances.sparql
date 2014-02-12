@@ -1,0 +1,6 @@
+prefix public: <http://rdf.basekb.com/public/>
+
+select ?s ?eye where {
+   ?s a ?type .
+   ?s public:subjectiveEye3D ?eye .
+} ORDER BY DESC(?eye) LIMIT 150

@@ -18,6 +18,8 @@ import static com.google.common.collect.Maps.newHashMap;
 public class MaterializationService {
     public List<Map<String, Object>> materializeResultSet(ResultSet results) {
         List<Map<String,Object>> rowz=newArrayList();
+        int i=1;
+
         while(results.hasNext()) {
             QuerySolution row=results.next();
             Iterator<String> names=row.varNames();
@@ -27,6 +29,7 @@ public class MaterializationService {
                 String name=names.next();
                 rowOut.put(name, flattenNode(row.get(name)));
             }
+            rowOut.put("i", i++);
         }
         return rowz;
     }

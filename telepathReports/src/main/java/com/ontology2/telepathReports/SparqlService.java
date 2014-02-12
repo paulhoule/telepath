@@ -26,7 +26,7 @@ public class SparqlService {
         Resource r= new ClassPathResource(queryName);
         String queryText= Resources.toString(r.getURL(), Charsets.UTF_8);
         ParameterizedSparqlString pss=new ParameterizedSparqlString(queryText,map);
-        return QueryFactory.create(queryText);
+        return pss.asQuery();
     }
 
     public ResultSet select(Query q) {
