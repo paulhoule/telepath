@@ -26,10 +26,10 @@ public class TypeReport extends CommandLineApplication {
     @Autowired SparqlService sparqlService;
     @Autowired TemplateService templateService;
     @Autowired MaterializationService materializationService;
+    @Autowired String webBase;
 
     @Override
     protected void _run(String[] strings) throws Exception {
-        String webBase="C:\\webbase\\";
         String webPrefix="reports";
         String reportType="typeReport";
         String guid= UUID.randomUUID().toString();

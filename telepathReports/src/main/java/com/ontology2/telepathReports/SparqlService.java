@@ -11,12 +11,14 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component("sparqlService")
 public class SparqlService {
     @Autowired
     ApplicationContext applicationContext;
+    final String service;
 
-    public final String service="http://localhost:8890/sparql";
+    public SparqlService(String service) {
+        this.service=service;
+    }
 
     public Query getQuery(String queryName) throws IOException {
         return getQuery(queryName,new QuerySolutionMap());

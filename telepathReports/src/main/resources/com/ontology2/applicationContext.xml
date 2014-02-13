@@ -11,8 +11,19 @@
   <!-- 1.1 make system properties available -->
 
   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-    <property name="locations" value="file:${user.home}/.telepathReports/local.properties" />
+    <property name="locations">
+       <list>
+         <value>/com/ontology2/default.properties</value>
+         <value>file:${user.home}/.telepathReports/local.properties</value>
+       </list>
+    </property>
     <property name="ignoreResourceNotFound" value="true" />
   </bean>
 
+  <bean class="java.lang.String" name="webBase">
+    <constructor-arg value="${com.ontology2.telepathReports.webBase}" />
+  </bean>
+  <bean class="com.ontology2.telepathReports.SparqlService" name="sparqlService">
+    <constructor-arg value="${com.ontology2.telepathReports.sparqlURI}" />
+  </bean>
 </beans>
