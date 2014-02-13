@@ -4,10 +4,10 @@
   <parent>
     <artifactId>telepath-parent</artifactId>
     <groupId>com.ontology2</groupId>
-    <version>t20140213</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
   <groupId>com.ontology2</groupId>
-  <version>t20140213</version>
+  <version>1.0-SNAPSHOT</version>
   <artifactId>telepathSql</artifactId>
   <packaging>jar</packaging>
 
