@@ -3,7 +3,7 @@
 
   <groupId>com.ontology2</groupId>
   <artifactId>telepath</artifactId>
-  <version>t20140218</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>telepath</name>
@@ -11,7 +11,7 @@
   <parent>
     <groupId>com.ontology2</groupId>
     <artifactId>telepath-parent</artifactId>
-    <version>t20140218</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
