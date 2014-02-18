@@ -1,6 +1,7 @@
 prefix public: <http://rdf.basekb.com/public/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
-select ?s ?eye where {
+select ?s (xsd:double(?eyef) as ?eye) where {
    ?s a ?type .
-   ?s public:subjectiveEye3D ?eye .
+   ?s public:subjectiveEye3D ?eyef .
 } ORDER BY DESC(?eye) LIMIT 150

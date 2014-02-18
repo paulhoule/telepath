@@ -1,6 +1,7 @@
 prefix public: <http://rdf.basekb.com/public/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
-select ?type (COUNT(?s) AS ?cnt) (SUM(?eye) AS ?sum) where {
+select ?type (COUNT(?s) AS ?cnt) (SUM(xsd:double(?eye)) AS ?sum) where {
    ?s a ?type .
    ?s public:subjectiveEye3D ?eye .
    FILTER(STRSTARTS(STR(?type), "http://dbpedia.org/ontology")) .

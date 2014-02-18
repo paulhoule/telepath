@@ -1,0 +1,8 @@
+prefix public: <http://rdf.basekb.com/public/>
+prefix vrank: <http://purl.org/voc/vrank#>
+
+select ?type (COUNT(?s) AS ?cnt) ((SUM(?eye)*?conversionFactor) AS ?sum) where {
+   ?s a ?type .
+   ?s vrank:hasRank/vrank:rankValue ?eye .
+   FILTER(STRSTARTS(STR(?type), "http://dbpedia.org/ontology")) .
+} GROUP BY ?type ORDER BY DESC(?sum)

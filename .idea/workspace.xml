@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql" line="5" />
+    <bookmark url="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql" line="6" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1aafd1e0-1e03-4f29-ab7a-e00afb288850" name="Default" comment="minimal viable product for type report obtained&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/default.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java" />
+    <list default="true" id="1aafd1e0-1e03-4f29-ab7a-e00afb288850" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/LinkBasedReport.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/UsageBasedReport.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/pageRank.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/subjectiveEye.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances-pr.sparql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport-pr.sparql" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__log4j_log4j_1_2_16.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__org_apache_httpcomponents_httpclient_4_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__org_apache_httpcomponents_httpcore_4_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__org_apache_jena_jena_arq_2_9_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__org_apache_jena_jena_core_2_7_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__org_apache_jena_jena_iri_0_9_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__xerces_xercesImpl_2_10_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\bloom\BloomMath.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\bloom\BloomReducer.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\mapreduce\InputPath.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\mapreduce\SelfAwareTool.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\mapreduce\ShadowedParameterizedType.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\mapreduce\SingleJobTool.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\mapreduce\StoreAs.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\mapreduce\TypeDetective.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\main\java\com\ontology2\bakemono\util\Utilities.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\test\java\com\ontology2\bakemono\bloom\BloomMathTest.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\test\java\com\ontology2\bakemono\bloom\BloomReducerTest.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\test\java\com\ontology2\bakemono\mapreduce\TestMapper.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\test\java\com\ontology2\bakemono\mapreduce\TestOptions.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\test\java\com\ontology2\bakemono\mapreduce\TestReducer.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\test\java\com\ontology2\bakemono\mapreduce\TestSelfAwareTool.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\telepath\src\test\java\com\ontology2\bakemono\mapreduce\TestTool.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReportBase.java" />
+      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\telepath\.idea\libraries\Maven__com_ontology2_bakemono_t20140207.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ontology2_bakemono_t20140217.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepath/pom.xml" afterPath="$PROJECT_DIR$/telepath/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepath/telepath.iml" afterPath="$PROJECT_DIR$/telepath/telepath.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telepath-parent.iws" />
@@ -64,7 +100,7 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/URIRewriter.java" line="82" class="com.ontology2.telepathReports.URIRewriter" package="com.ontology2.telepathReports">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -90,28 +126,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="TypeReportBase.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReportBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="37" selection-start="1174" selection-end="1183" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1955">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="typeReport.ftl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="91" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="typeReport.sparql" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="masterTemplate.ftl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/masterTemplate.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+            <state line="8" column="102" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
               <folding />
             </state>
           </provider>
@@ -120,29 +147,36 @@
       <file leaf-file-name="TypeReport.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="60" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0" vertical-offset="257" max-vertical-offset="1802">
+            <state line="19" column="101" selection-start="704" selection-end="704" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3309#3495#0" expanded="true" />
-                <element signature="e#3484#3485#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml">
+      <file leaf-file-name="subjectiveEye.ftl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/subjectiveEye.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="70" selection-start="1368" selection-end="1410" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+            <state line="2" column="79" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.properties" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/default.properties">
+      <file leaf-file-name="LinkBasedReport.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/LinkBasedReport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="21" selection-start="73" selection-end="73" vertical-scroll-proportion="0.02367688" vertical-offset="0" max-vertical-offset="718">
+            <state line="29" column="29" selection-start="692" selection-end="692" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsageBasedReport.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/UsageBasedReport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="28" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
               <folding />
             </state>
           </provider>
@@ -151,36 +185,34 @@
       <file leaf-file-name="SparqlService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="4" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Resource.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar!/org/springframework/core/io/Resource.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="17" selection-start="174" selection-end="174" vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="561">
+            <state line="30" column="0" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostProcessorRegistrationDelegate.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.0.RELEASE/spring-context-4.0.0.RELEASE.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.class">
+      <file leaf-file-name="MixedContent.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/freemarker/freemarker/2.3.20/freemarker-2.3.20.jar!/freemarker/core/MixedContent.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="3688" selection-end="3688" vertical-scroll-proportion="-24.12" vertical-offset="162" max-vertical-offset="867">
+            <state line="28" column="0" selection-start="1089" selection-end="1089" vertical-scroll-proportion="-19.04" vertical-offset="0" max-vertical-offset="578">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topInstances.ftl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl">
+      <file leaf-file-name="pageRank.ftl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/pageRank.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="44" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+            <state line="3" column="71" selection-start="414" selection-end="414" vertical-scroll-proportion="0.061077844" vertical-offset="0" max-vertical-offset="835">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaterializationService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/MaterializationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="58" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0" vertical-offset="355" max-vertical-offset="1190">
               <folding />
             </state>
           </provider>
@@ -205,26 +237,34 @@
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/Statics.java" />
         <option value="$PROJECT_DIR$/telepathReports/pom.xml" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/FluentFile.java" />
-        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql" />
-        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/masterTemplate.ftl" />
-        <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/MaterializationService.java" />
-        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/URIRewriter.java" />
-        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl" />
-        <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java" />
         <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/default.properties" />
+        <option value="$PROJECT_DIR$/telepath/pom.xml" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/subjectiveEye.ftl" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport-pr.sparql" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances-pr.sparql" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/LinkBasedReport.java" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/UsageBasedReport.java" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReportBase.java" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl" />
+        <option value="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/pageRank.ftl" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="967" />
-    <option name="y" value="103" />
-    <option name="width" value="1278" />
-    <option name="height" value="1251" />
+    <option name="x" value="739" />
+    <option name="y" value="19" />
+    <option name="width" value="1811" />
+    <option name="height" value="1368" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -466,6 +506,116 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="telepath" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assembly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -485,14 +635,16 @@
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ontology2" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\paul_000\Documents\GitHub\telepath\telepathReports\src\main\resources\com\ontology2" />
       <recent name="C:\Users\paul_000\Documents\GitHub\telepath\telepathReports\src\main\resources\com\ontology2\telepathReports" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.ontology2" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Unnamed">
@@ -530,6 +682,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -555,19 +720,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -696,11 +848,15 @@
       <created>1392249482073</created>
       <updated>1392249482073</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="make output dir and SPARQL endpoint configurable&#10;">
+      <created>1392317544183</created>
+      <updated>1392317544183</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="967" y="103" width="1278" height="1251" extended-state="0" />
+    <frame x="739" y="19" width="1811" height="1368" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -708,24 +864,24 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985204" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39969015" sideWeight="0.4996337" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3312937" sideWeight="0.50158477" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3005551" sideWeight="0.50194985" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867134" sideWeight="0.4984152" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32831088" sideWeight="0.49805015" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30903327" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3312937" sideWeight="0.4984152" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2172702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3005551" sideWeight="0.49805015" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985204" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -753,7 +909,8 @@
     <MESSAGE value="make the ^^xsd:cruft go away&#10;" />
     <MESSAGE value="much more progress on reports including master templates,  URI rewriting, etc." />
     <MESSAGE value="minimal viable product for type report obtained&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="minimal viable product for type report obtained&#10;" />
+    <MESSAGE value="make output dir and SPARQL endpoint configurable&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="make output dir and SPARQL endpoint configurable&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -763,6 +920,159 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="98" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/URIRewriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="89" selection-start="1816" selection-end="1816" vertical-scroll-proportion="0.0" vertical-offset="884" max-vertical-offset="1802">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="51" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReportBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="97" selection-start="3657" selection-end="3657" vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="48" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/pageRank.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="79" selection-start="48" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/subjectiveEye.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="79" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances-pr.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="76" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport-pr.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="61" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="98" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/URIRewriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="2091">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="51" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="91" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/masterTemplate.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="221" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReportBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="60" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0" vertical-offset="257" max-vertical-offset="1802">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="70" selection-start="1368" selection-end="1410" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/default.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="54" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="119" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="4" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="765">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar!/org/springframework/core/io/Resource.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="17" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="578" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.0.RELEASE/spring-context-4.0.0.RELEASE.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="3688" selection-end="3688" vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="884" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="44" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
@@ -791,66 +1101,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="10" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/FluentFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="28" selection-start="776" selection-end="776" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="81" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/MaterializationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="58" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="1394">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/URIRewriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="38" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2023">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2616#2782#0" expanded="true" />
-            <element signature="e#2771#2772#0" expanded="true" />
-            <element signature="e#3081#3532#0" expanded="true" />
-            <element signature="e#3521#3522#0" expanded="true" />
-            <element signature="e#3673#3844#0" expanded="true" />
-            <element signature="e#3833#3834#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/masterTemplate.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -863,55 +1119,148 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar!/org/springframework/core/io/Resource.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="174" selection-end="174" vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="561">
-          <folding />
-        </state>
+        <state line="6" column="17" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="578" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.0.0.RELEASE/spring-context-4.0.0.RELEASE.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="3688" selection-end="3688" vertical-scroll-proportion="-24.12" vertical-offset="162" max-vertical-offset="867">
+        <state line="46" column="0" selection-start="3688" selection-end="3688" vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="884" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/default.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="54" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepath/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="24" selection-start="1353" selection-end="1353" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1904">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java">
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/masterTemplate.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="60" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.0" vertical-offset="257" max-vertical-offset="1802">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3309#3495#0" expanded="true" />
-            <element signature="e#3484#3485#0" expanded="true" />
-          </folding>
+        <state line="5" column="13" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances-pr.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/URIRewriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="23" selection-start="2133" selection-end="2133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport-pr.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="36" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TemplateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="50" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/freemarker/freemarker/2.3.20/freemarker-2.3.20.jar!/freemarker/core/MixedContent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1089" selection-end="1089" vertical-scroll-proportion="-19.04" vertical-offset="0" max-vertical-offset="578">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="44" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+        <state line="23" column="60" selection-start="873" selection-end="873" vertical-scroll-proportion="0.4567757" vertical-offset="0" max-vertical-offset="856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/UsageBasedReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="28" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/topInstances.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="19" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.sparql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="47" selection-end="94" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/MaterializationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="58" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0" vertical-offset="355" max-vertical-offset="1190">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/SparqlService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="4" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+        <state line="30" column="0" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/LinkBasedReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="29" selection-start="692" selection-end="692" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/subjectiveEye.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="79" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="101" selection-start="704" selection-end="704" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl">
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/TypeReportBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="91" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+        <state line="32" column="37" selection-start="1174" selection-end="1183" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1955">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/default.properties">
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/typeReport.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="21" selection-start="73" selection-end="73" vertical-scroll-proportion="0.02367688" vertical-offset="0" max-vertical-offset="718">
+        <state line="8" column="102" selection-start="540" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/telepathReports/pageRank.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="71" selection-start="414" selection-end="414" vertical-scroll-proportion="0.061077844" vertical-offset="0" max-vertical-offset="835">
           <folding />
         </state>
       </provider>

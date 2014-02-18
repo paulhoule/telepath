@@ -39,7 +39,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>bakemono</artifactId>
-      <version>t20140207</version>
+      <version>t20140217</version>
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>

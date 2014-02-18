@@ -1,0 +1,6 @@
+prefix vrank: <http://purl.org/voc/vrank#>
+
+select ?s (?vrank*?conversionFactor AS ?eye) where {
+   ?s a ?type .
+   ?s vrank:hasRank/vrank:rankValue ?vrank .
+} ORDER BY DESC(?eye) LIMIT 150
