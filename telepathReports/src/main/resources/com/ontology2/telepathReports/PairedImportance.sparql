@@ -1,0 +1,9 @@
+prefix public: <http://rdf.basekb.com/public/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix vrank: <http://purl.org/voc/vrank#>
+prefix dbpedia: <http://dbpedia.org/resource/>
+
+select ?s ?eye ?pr {
+   ?s public:subjectiveEye3D ?eye .
+   ?s vrank:hasRank/vrank:rankValue ?pr .
+} OFFSET ?o LIMIT ?l

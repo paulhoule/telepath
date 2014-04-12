@@ -27,7 +27,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>4.0.0.RELEASE</version>
+      <version>4.0.3.RELEASE</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -39,7 +39,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>bakemono</artifactId>
-      <version>t20140217</version>
+      <version>t20140412</version>
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>

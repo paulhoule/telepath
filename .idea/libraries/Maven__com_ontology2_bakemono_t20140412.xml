@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.ontology2:bakemono:t20140412">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ontology2/bakemono/t20140412/bakemono-t20140412.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ontology2/bakemono/t20140412/bakemono-t20140412-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ontology2/bakemono/t20140412/bakemono-t20140412-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

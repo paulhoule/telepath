@@ -15,7 +15,7 @@ import java.util.List;
 @HadoopTool("countDBpediaMerge")
 public class MergeTool extends SelfAwareTool<MergeToolOptions> {
     @Override
-    protected Class<? extends InputFormat> getInputFormatClass() {
+    public Class<? extends InputFormat> getInputFormatClass() {
         return TextInputFormat.class;
     }
 
