@@ -53,7 +53,7 @@ public class InvertMonthlies extends CommandLineApplication {
     @Override
     protected void _run(String[] arguments) throws Exception {
         long t0 = currentTimeMillis();
-        File f = new File("/freebase/raw/condensedMonths/");
+        File f = new File("/freebase/raw/");
         ListMultimap<String, File> allFiles = ArrayListMultimap.create();
 
         if (f.isDirectory()) {

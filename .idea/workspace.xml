@@ -5,27 +5,9 @@
     <bookmark url="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java" line="203" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1aafd1e0-1e03-4f29-ab7a-e00afb288850" name="Default" comment="bump to bakemono t20140412 and spring 4.0.3">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/LookAtInvertedMonthlies.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ontology2_centipede_99_7_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ontology2_centipede_parser_99_7_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapdb_mapdb_1_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_0_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/pom.xml" afterPath="$PROJECT_DIR$/telepathReports/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathSql/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/telepathSql/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/telepathReports.iml" afterPath="$PROJECT_DIR$/telepathReports/telepathReports.iml" />
+    <list default="true" id="1aafd1e0-1e03-4f29-ab7a-e00afb288850" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathSql/.idea/workspace.xml" afterPath="$PROJECT_DIR$/telepathSql/.idea/workspace.xml" />
     </list>
     <ignored path="telepath-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -148,8 +130,8 @@
       <file leaf-file-name="InvertMonthlies.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5764526" vertical-offset="626" max-vertical-offset="3485">
-              <caret line="61" column="56" selection-start-line="61" selection-start-column="56" selection-end-line="61" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.3867792" vertical-offset="626" max-vertical-offset="3485">
+              <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -257,10 +239,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="74" />
-    <option name="y" value="149" />
+    <option name="x" value="112" />
+    <option name="y" value="255" />
     <option name="width" value="1787" />
-    <option name="height" value="1043" />
+    <option name="height" value="1100" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -722,12 +704,16 @@
       <created>1397340595726</created>
       <updated>1397340595726</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="centipede V bump and work on invert monthlies">
+      <created>1411681189226</created>
+      <updated>1411681189226</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="74" y="149" width="1787" height="1043" extended-state="0" />
-    <editor active="false" />
+    <frame x="112" y="255" width="1787" height="1100" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -736,10 +722,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39915523" sideWeight="0.49947917" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21520342" sideWeight="0.5059289" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20282543" sideWeight="0.5059289" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21520342" sideWeight="0.49407116" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20282543" sideWeight="0.49407116" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -810,7 +796,8 @@
     <MESSAGE value="make output dir and SPARQL endpoint configurable&#10;" />
     <MESSAGE value="move SelfAwareTool and supporting classes to bakemono.  Generate dual report with both link-based and usage-based importance.&#10;" />
     <MESSAGE value="bump to bakemono t20140412 and spring 4.0.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="bump to bakemono t20140412 and spring 4.0.3" />
+    <MESSAGE value="centipede V bump and work on invert monthlies" />
+    <option name="LAST_COMMIT_MESSAGE" value="centipede V bump and work on invert monthlies" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1206,8 +1193,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5764526" vertical-offset="626" max-vertical-offset="3485">
-          <caret line="61" column="56" selection-start-line="61" selection-start-column="56" selection-end-line="61" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.3867792" vertical-offset="626" max-vertical-offset="3485">
+          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
