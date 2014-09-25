@@ -23,7 +23,13 @@
   <bean class="java.lang.String" name="webBase">
     <constructor-arg value="${com.ontology2.telepathReports.webBase}" />
   </bean>
-  <bean class="com.ontology2.telepathReports.SparqlService" name="sparqlService">
+  <bean class="java.lang.String" name="sparqlUri">
     <constructor-arg value="${com.ontology2.telepathReports.sparqlURI}" />
+  </bean>
+  <bean class="java.lang.String" name="sparqlUsername">
+    <constructor-arg value="${com.ontology2.telepathReports.sparqlUsername}" />
+  </bean>
+  <bean class="java.lang.String" name="sparqlPassword">
+    <constructor-arg value="${com.ontology2.telepathReports.sparqlPassword}" />
   </bean>
 </beans>
