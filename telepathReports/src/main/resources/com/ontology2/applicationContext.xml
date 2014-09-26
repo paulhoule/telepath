@@ -32,4 +32,7 @@
   <bean class="java.lang.String" name="sparqlPassword">
     <constructor-arg value="${com.ontology2.telepathReports.sparqlPassword}" />
   </bean>
+  <bean class="java.lang.String" name="rawMonthlies">
+    <constructor-arg value="${com.ontology2.telepathReports.rawMonthlies}" />
+  </bean>
 </beans>
