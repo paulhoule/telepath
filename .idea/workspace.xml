@@ -6,8 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1aafd1e0-1e03-4f29-ab7a-e00afb288850" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java" afterPath="$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml" afterPath="$PROJECT_DIR$/telepathReports/src/main/resources/com/ontology2/applicationContext.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="telepath-parent.iws" />
@@ -111,11 +109,9 @@
       <file leaf-file-name="InvertMonthlies.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.815534" vertical-offset="0" max-vertical-offset="4165">
-              <caret line="68" column="90" selection-start-line="68" selection-start-column="62" selection-end-line="68" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-5.271845" vertical-offset="3547" max-vertical-offset="4165">
+              <caret line="17" column="68" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -687,7 +683,11 @@
       <created>1411765888632</created>
       <updated>1411765888632</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="tried to run against real data and ran out of RAM,  this time with 12GB allocated.&#10;&#10;It's very possible I'm doing something wrong,  and also possible this can be made to fit with further shoehorning,  but Hadoop can do this kind of problem easily.  It would be extremely challenging to do weeklies or dailies at this rate.&#10;&#10;So let's check the code in and move on to the next thing.">
+      <created>1411867942594</created>
+      <updated>1411867942594</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -704,6 +704,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31784582" sideWeight="0.22604166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20181635" sideWeight="0.4935065" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -714,7 +715,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985204" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20181635" sideWeight="0.4935065" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -778,7 +778,8 @@
     <MESSAGE value="centipede V bump and work on invert monthlies" />
     <MESSAGE value="change filename" />
     <MESSAGE value="refactor to reduce memory use.  code works." />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor to reduce memory use.  code works." />
+    <MESSAGE value="tried to run against real data and ran out of RAM,  this time with 12GB allocated.&#10;&#10;It's very possible I'm doing something wrong,  and also possible this can be made to fit with further shoehorning,  but Hadoop can do this kind of problem easily.  It would be extremely challenging to do weeklies or dailies at this rate.&#10;&#10;So let's check the code in and move on to the next thing." />
+    <option name="LAST_COMMIT_MESSAGE" value="tried to run against real data and ran out of RAM,  this time with 12GB allocated.&#10;&#10;It's very possible I'm doing something wrong,  and also possible this can be made to fit with further shoehorning,  but Hadoop can do this kind of problem easily.  It would be extremely challenging to do weeklies or dailies at this rate.&#10;&#10;So let's check the code in and move on to the next thing." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1132,6 +1133,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1950" max-vertical-offset="87754">
           <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,6 +1141,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.83179295" vertical-offset="2967" max-vertical-offset="5814">
           <caret line="235" column="18" selection-start-line="235" selection-start-column="18" selection-end-line="235" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,6 +1149,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4619883" vertical-offset="1701" max-vertical-offset="15759">
           <caret line="164" column="66" selection-start-line="164" selection-start-column="62" selection-end-line="164" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,6 +1164,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37338263" vertical-offset="920" max-vertical-offset="7208">
           <caret line="88" column="17" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,11 +1186,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/telepathReports/src/main/java/com/ontology2/telepathReports/InvertMonthlies.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.815534" vertical-offset="0" max-vertical-offset="4165">
-          <caret line="68" column="90" selection-start-line="68" selection-start-column="62" selection-end-line="68" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-5.271845" vertical-offset="3547" max-vertical-offset="4165">
+          <caret line="17" column="68" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
