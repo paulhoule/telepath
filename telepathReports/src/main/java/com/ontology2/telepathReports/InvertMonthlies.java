@@ -11,6 +11,8 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.ontology2.centipede.shell.CommandLineApplication;
 import org.apache.commons.logging.Log;
+import org.mapdb.DB;
+import org.mapdb.DBMaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +28,7 @@ import static com.google.common.collect.Lists.newArrayListWithCapacity;
 import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.util.concurrent.MoreExecutors.*;
 import static java.lang.Integer.parseInt;
+import static java.lang.Runtime.getRuntime;
 import static java.lang.System.*;
 import static java.util.Collections.sort;
 import static java.util.Collections.synchronizedMap;
@@ -39,6 +42,8 @@ public class InvertMonthlies extends CommandLineApplication {
     static final Log LOG= getLog(InvertMonthlies.class);
     @Autowired
     String rawMonthlies;
+    @Autowired
+    String topicHitsS;
     private ArrayList<String> orderedMonths;
     private List<Multiset<String>> counts;
     private List<Float> monthNorm;
@@ -89,68 +94,65 @@ public class InvertMonthlies extends CommandLineApplication {
         long t3= currentTimeMillis();
         LOG.info("Normalization factors computed in "+(t3-t2)+ " ms");
 
-//        final File topicHits = new File("/freebase/output/topicHits/");
-//        if(topicHits.exists())
-//            topicHits.delete();
-//
-//        topicHits.mkdir();
-//
-//        final int Nways=8;
-//        final List<Map<String,float[]>> output=newArrayList();
-//        for(int i=0;i<Nways;i++) {
-//            DB db= DBMaker.newFileDB(new File(topicHits,i+".db")).closeOnJvmShutdown().compressionEnable().make();
-//            Map<String,float[]> map=db.getTreeMap("uriCounts");
-//            output.add(map);
-//        }
-//
-//        final int arrayLen=orderedMonths.size();
-//
-//
+        final File topicHits = new File(topicHitsS);
+        if(topicHits.exists())
+            topicHits.delete();
 
-//
-//        ExecutorService svc2 = newFixedThreadPool(6);
-//        LOG.info("Attempting to insert "+allUris.size()+" records");
-//        int k=1;
-//        for(final List<String> p: partition(allUris, 10000)) {
-//
-//            final int kk=k++;
-//            svc2.submit(new Runnable() {
-//
-//                @Override
-//                public void run() {
-//                    try {
-//                        LOG.info("Inside Runnable " + kk + " with " + p.size());
-//                        int knt = 0;
-//                        for (String uri : p) {
-//                            float[] rotated = new float[arrayLen];
-//                            int i = 0;
-//                            for (String month : orderedMonths) {
-//                                rotated[i] = (1.0F * data.get(month).count(uri) / allMonth[i]);
-//                                i++;
-//                            }
-//                            output.get(Math.abs(uri.hashCode() % Nways)).put(uri, rotated);
-//                            knt++;
-//                        }
-//                    } catch(Throwable t) {
-//                        if (t!=null)
-//                            LOG.error(t);
-//                    }
-//                }
-//
-//            });
-//        }
-//
-//        svc2.shutdown();
-//        svc2.awaitTermination(1,DAYS);
-//
-//        long t4= currentTimeMillis();
-//        LOG.info("Results inverted and written in "+(t4-t3)+ " ms");
-//        LOG.info("Endpoint memory consumption "+ getRuntime().totalMemory());
+        topicHits.mkdir();
+
+        final int Nways=8;
+        final List<Map<String,float[]>> output=newArrayList();
+        for(int i=0;i<Nways;i++) {
+            DB db= DBMaker.newFileDB(new File(topicHits, i + ".db")).closeOnJvmShutdown().compressionEnable().make();
+            Map<String,float[]> map=db.getTreeMap("uriCounts");
+            output.add(map);
+        }
+
+        final int arrayLen=orderedMonths.size();
+
+        ExecutorService svc2 = newFixedThreadPool(8);
+        LOG.info("Attempting to insert "+allUris.size()+" records");
+        int k=1;
+        for(final List<String> p: partition(allUris, 10000)) {
+
+            final int kk=k++;
+            svc2.submit(new Runnable() {
+
+                @Override
+                public void run() {
+                    try {
+                        LOG.info("Inside Runnable " + kk + " with " + p.size());
+                        int knt = 0;
+                        for (String uri : p) {
+                            float[] rotated = new float[arrayLen];
+                            int i = 0;
+                            for (String month : orderedMonths) {
+                                rotated[i] = (1.0F * counts.get(i).count(uri)*monthNorm.get(i));
+                                i++;
+                            }
+                            output.get(Math.abs(uri.hashCode() % Nways)).put(uri, rotated);
+                            knt++;
+                        }
+                    } catch(Throwable t) {
+                        if (t!=null)
+                            LOG.error(t);
+                    }
+                }
+
+            });
+        }
+
+        svc2.shutdown();
+        svc2.awaitTermination(1,DAYS);
+
+        long t4= currentTimeMillis();
+        LOG.info("Results inverted and written in "+(t4-t3)+ " ms");
+        LOG.info("Endpoint memory consumption "+ getRuntime().totalMemory());
 
     }
 
     private long usedMemory() {
-        return (Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory());
+        return (getRuntime().totalMemory()- getRuntime().freeMemory());
     }
 
     private void readCountsFromFileAndOrderByMonth(final ListMultimap<String, File> allFiles) throws InterruptedException {

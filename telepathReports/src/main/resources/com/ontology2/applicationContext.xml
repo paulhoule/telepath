@@ -35,4 +35,7 @@
   <bean class="java.lang.String" name="rawMonthlies">
     <constructor-arg value="${com.ontology2.telepathReports.rawMonthlies}" />
   </bean>
+  <bean class="java.lang.String" name="topicHitsS">
+    <constructor-arg value="${com.ontology2.telepathReports.topicHits}" />
+  </bean>
 </beans>
